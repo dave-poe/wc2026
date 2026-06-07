@@ -15,8 +15,11 @@ jobs:
           node-version: "20"
           cache: "npm"
       - run: npm ci
+      - name: Unit tests
+        run: npm run test:unit
       - run: npx playwright install --with-deps
-      - run: npm test
+      - name: E2E tests
+        run: npm run test:e2e
       - if: failure()
         uses: actions/upload-artifact@v4
         with:

@@ -4,7 +4,7 @@ const baseURL = process.env.PLAYWRIGHT_BASE_URL ?? "http://127.0.0.1:4173/";
 const isProd = baseURL.startsWith("http://") === false && !baseURL.includes("127.0.0.1");
 
 export default defineConfig({
-  testDir: "./tests",
+  testDir: "./tests/e2e",
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,

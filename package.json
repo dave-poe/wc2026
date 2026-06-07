@@ -4,12 +4,15 @@
   "type": "module",
   "scripts": {
     "build": "node build.mjs",
-    "test": "playwright test",
+    "test": "vitest run && playwright test",
+    "test:unit": "vitest run",
+    "test:e2e": "playwright test",
     "test:prod": "PLAYWRIGHT_BASE_URL=https://dave-poe.github.io/wc2026/ playwright test"
   },
   "devDependencies": {
     "@playwright/test": "^1.49.0",
     "@types/node": "^25.9.1",
-    "http-server": "^14.1.1"
+    "http-server": "^14.1.1",
+    "vitest": "^4.1.8"
   }
 }
