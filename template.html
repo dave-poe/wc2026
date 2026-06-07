@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -293,7 +293,7 @@
   const D = window.__SWEEPSTAKE__;
   const $ = (id)=>document.getElementById(id);
 
-  // theme: default light, persist per-viewer
+  // theme: default dark, persist per-viewer
   const root=document.documentElement;
   const tBtn=$("themeToggle");
   function applyTheme(t){
@@ -302,7 +302,7 @@
   }
   let savedTheme=null;
   try{ savedTheme=localStorage.getItem("wc-theme"); }catch(e){}
-  applyTheme(savedTheme==="dark"?"dark":"light");
+  applyTheme(savedTheme==="light"?"light":"dark");
   tBtn.onclick=()=>{
     const next = root.getAttribute("data-theme")==="dark" ? "light" : "dark";
     applyTheme(next);
@@ -328,8 +328,8 @@
   }
 
   $("title").innerHTML = esc(D.meta.title).replace(/2026/,'<span class="hl">2026</span>');
-  const hosts=["United States","Canada","Mexico"];
-  $("subtitle").innerHTML = hosts.map(h=>esc(h)+" "+flag(h)).join('<span class="subdot"> · </span>');
+  const hosts=[["United States","USA"],["Canada","Canada"],["Mexico","Mexico"]];
+  $("subtitle").innerHTML = hosts.map(([team,label])=>esc(label)+" "+flag(team)).join('<span class="subdot"> · </span>');
   const dt = new Date(D.builtAt);
   $("built").innerHTML = "LAST UPDATED<br>"+dt.toLocaleDateString("en-GB",{day:"2-digit",month:"short"})+" · "+dt.toLocaleTimeString("en-GB",{hour:"2-digit",minute:"2-digit"});
   $("foot").textContent = "Updated when results change · Static build · "+D.leaderboard.length+" players · 48 teams";

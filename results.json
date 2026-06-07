@@ -1,8 +1,7 @@
 {
   "_comment": "EDIT THIS FILE TO UPDATE THE SWEEPSTAKE. Push to GitHub and the site rebuilds automatically. See README for instructions.",
   "meta": {
-    "title": "Kennedy & Friends World Cup 2026",
-    "subtitle": "United States · Canada · Mexico"
+    "title": "Kennedy & Friends World Cup 2026"
   },
   "_allocations_comment": "Map each person to the teams they drew. Use the EXACT team names from the groups below. Add/remove people freely.",
   "allocations": {
