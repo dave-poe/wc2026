@@ -1,0 +1,29 @@
+name: Prod smoke
+
+on:
+  workflow_run:
+    workflows: ["Build & Deploy Sweepstake"]
+    types: [completed]
+  workflow_dispatch: {}
+
+jobs:
+  smoke:
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    env:
+      PLAYWRIGHT_BASE_URL: https://dave-poe.github.io/wc2026/
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+      - run: npm ci
+      - run: npx playwright install --with-deps
+      - run: npx playwright test
+      - if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report-prod
+          path: playwright-report/
+          retention-days: 7

@@ -23,3 +23,8 @@ index.html
 *.tmp
 *.temp
 *.log
+
+# Playwright
+/test-results/
+/playwright-report/
+/playwright/.cache/

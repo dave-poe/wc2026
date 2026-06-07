@@ -1,0 +1,15 @@
+{
+  "name": "wc2026",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "test": "playwright test",
+    "test:prod": "PLAYWRIGHT_BASE_URL=https://dave-poe.github.io/wc2026/ playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.49.0",
+    "@types/node": "^25.9.1",
+    "http-server": "^14.1.1"
+  }
+}
