@@ -1,0 +1,45 @@
+name: Build & Deploy Sweepstake
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "results.json"
+      - "template.html"
+      - "build.mjs"
+      - ".github/workflows/update.yml"
+  workflow_dispatch: {}   # lets you trigger a manual rebuild from the Actions tab
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Build index.html
+        run: node build.mjs
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
