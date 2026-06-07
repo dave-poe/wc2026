@@ -96,7 +96,6 @@
   .chip.champ{border-color:var(--amber);color:var(--amber)}
   .alivebox{text-align:right}
   .alivenum{font-family:'Archivo Black',sans-serif;font-size:24px;line-height:1}
-  .alivelbl{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.2em;color:var(--muted);text-transform:uppercase}
   .pwon{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
   .medal{font-family:'Space Mono',monospace;font-size:11px;padding:3px 9px;border-radius:6px;background:var(--medal-bg);border:1px solid var(--amber);color:var(--amber)}
 
@@ -249,7 +248,7 @@
 
   <section id="tab-standings" class="show">
     <div class="fxbar">
-      <div class="sectitle" style="margin:0">The Pool · Who's Still Alive</div>
+      <div class="sectitle" style="margin:0">The Pool · Teams Still Active</div>
       <button id="poolToggle" class="fxfilter" aria-pressed="false">Show exited</button>
     </div>
     <div class="lb" id="leaderboard"></div>
@@ -369,8 +368,7 @@
       '<div class="pinfo"><div class="pname">'+esc(p.person)+'</div>'+
         '<div class="teams">'+chips+'</div>'+
         (medals?'<div class="pwon">'+medals+'</div>':'')+'</div>'+
-      '<div class="alivebox"><div class="alivenum">'+p.alive.length+'</div>'+
-        '<div class="alivelbl">Alive</div></div>';
+      '<div class="alivebox"><div class="alivenum">'+p.alive.length+'</div></div>';
     return row;
   }
   function renderPool(){
