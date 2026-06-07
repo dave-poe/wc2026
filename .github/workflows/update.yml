@@ -7,6 +7,7 @@ on:
       - "results.json"
       - "template.html"
       - "build.mjs"
+      - "lib/**"
       - ".github/workflows/update.yml"
   workflow_dispatch: {}   # lets you trigger a manual rebuild from the Actions tab
 
@@ -27,6 +28,10 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "20"
+          cache: "npm"
+      - run: npm ci
+      - name: Unit tests
+        run: npm run test:unit
       - name: Build index.html
         run: node build.mjs
       - name: Upload artifact
