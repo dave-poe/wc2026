@@ -16,7 +16,7 @@ const flagISO = {
   "Mexico":"mx","South Africa":"za","South Korea":"kr","Czechia":"cz",
   "Canada":"ca","Bosnia and Herzegovina":"ba","Qatar":"qa","Switzerland":"ch",
   "Brazil":"br","Morocco":"ma","Haiti":"ht","Scotland":"gb-sct",
-  "United States":"us","Paraguay":"py","Australia":"au","Türkiye":"tr",
+  "United States":"us","Paraguay":"py","Australia":"au","Turkey":"tr",
   "Germany":"de","Curaçao":"cw","Côte d'Ivoire":"ci","Ecuador":"ec",
   "Netherlands":"nl","Japan":"jp","Sweden":"se","Tunisia":"tn",
   "Belgium":"be","Egypt":"eg","Iran":"ir","New Zealand":"nz",
