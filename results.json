@@ -15,7 +15,7 @@
       "South Africa"
     ],
     "Dylan": [
-      "Türkiye",
+      "Turkey",
       "South Africa"
     ],
     "Euan": [
@@ -23,14 +23,16 @@
       "South Africa"
     ],
     "Helene": [
-      "Germany"
+      "Germany",
+      "Netherlands"
     ],
     "Robert": [
       "Croatia",
       "Netherlands"
     ],
     "James": [
-      "England"
+      "England",
+      "Netherlands"
     ],
     "Isabel": [
       "Saudi Arabia",
@@ -195,7 +197,7 @@
       "United States",
       "Paraguay",
       "Australia",
-      "Türkiye"
+      "Turkey"
     ],
     "E": [
       "Germany",
@@ -460,7 +462,7 @@
       "group": "D",
       "date": "2026-06-14",
       "home": "Australia",
-      "away": "Türkiye",
+      "away": "Turkey",
       "homeScore": null,
       "awayScore": null,
       "timeBST": "05:00",
@@ -481,7 +483,7 @@
     {
       "group": "D",
       "date": "2026-06-20",
-      "home": "Türkiye",
+      "home": "Turkey",
       "away": "Paraguay",
       "homeScore": null,
       "awayScore": null,
@@ -503,7 +505,7 @@
     {
       "group": "D",
       "date": "2026-06-26",
-      "home": "Türkiye",
+      "home": "Turkey",
       "away": "United States",
       "homeScore": null,
       "awayScore": null,

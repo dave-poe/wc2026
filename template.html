@@ -279,7 +279,7 @@
   </section>
 
   <footer>
-    <button id="themeToggle" class="themetoggle" aria-label="Toggle light/dark theme">☾ Dark</button>
+    <button id="themeToggle" class="themetoggle" aria-label="Toggle light/dark theme">☾ Dark Mode</button>
     <div class="built" id="built"></div>
     <div class="footinfo" id="foot"></div>
   </footer>
@@ -298,7 +298,7 @@
   const tBtn=$("themeToggle");
   function applyTheme(t){
     root.setAttribute("data-theme",t);
-    tBtn.textContent = t==="dark" ? "☀ Light" : "☾ Dark";
+    tBtn.textContent = t==="dark" ? "☀ Light Mode" : "☾ Dark Mode";
   }
   let savedTheme=null;
   try{ savedTheme=localStorage.getItem("wc-theme"); }catch(e){}
