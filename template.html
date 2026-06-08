@@ -55,14 +55,19 @@
 
   header{position:relative;margin:18px 0 8px;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--panel);box-shadow:var(--shadow)}
   .hero-bg{position:absolute;inset:0;width:100%;height:100%;z-index:0}
-  .hero-content{position:relative;z-index:1;padding:34px 32px 30px}
-  .hero-marks{display:flex;gap:10px;margin-bottom:16px}
-  .hero-marks .mark{width:40px;height:40px;display:block}
+  .hero-content{position:relative;z-index:1;padding:34px clamp(180px, 34vw, 400px) 30px 32px}
+  .hero-figures{position:absolute;right:20px;bottom:10px;z-index:1;display:flex;align-items:flex-end;gap:4px;pointer-events:none}
+  .hero-figures .figure{width:clamp(38px, 7.5vw, 88px);height:auto;display:block;filter:drop-shadow(0 6px 5px rgba(0,0,0,.22))}
+  .hero-marks{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+  .hero-marks .mark{width:40px;height:40px;display:block;flex-shrink:0}
+  .hero-marks .kicker{margin-bottom:0;margin-left:6px}
   .kicker{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.35em;color:var(--amber);text-transform:uppercase;margin-bottom:14px}
-  h1{font-family:'Archivo Black',sans-serif;font-size:clamp(28px,4.8vw,48px);line-height:.96;letter-spacing:-.02em;text-transform:uppercase;max-width:80%}
+  h1{font-family:'Archivo Black',sans-serif;font-size:clamp(28px,4.8vw,48px);line-height:.96;letter-spacing:-.02em;text-transform:uppercase}
   h1 .hl{color:var(--amber)}
   .sub{font-family:'Space Mono',monospace;color:var(--muted);margin-top:14px;font-size:14px;letter-spacing:.1em;display:flex;flex-wrap:wrap;align-items:center;gap:2px}
-  .sub .flag{width:20px;margin:0 2px 0 6px}
+  .sub{gap:10px}
+  .sub .flag{width:34px;margin:0;border-radius:4px}
+  .sub .subdot{margin:0 2px}
   .subdot{margin:0 4px;color:var(--dim)}
   .built{font-family:'Space Mono',monospace;font-size:11px;color:var(--dim);text-align:center;line-height:1.7;margin-top:14px}
   .themetoggle{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;
@@ -132,24 +137,27 @@
   .dot{display:inline-block;width:9px;height:9px;border-radius:3px;margin-right:6px;vertical-align:middle}
 
   /* fixtures + knockout */
-  .fxlist{display:grid;gap:8px}
+  .fxlist{display:grid;gap:12px}
   .fxbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px;flex-wrap:wrap}
   .fxfilter{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);background:var(--panel);border:1px solid var(--line);padding:8px 16px;border-radius:999px;cursor:pointer;transition:.18s}
   .fxfilter:hover{color:var(--ink);border-color:var(--dim)}
   .fxfilter[aria-pressed="true"]{background:var(--amber);color:var(--on-amber);border-color:var(--amber)}
-  .fx.done{opacity:.62}
-  .fx.done .fxg-label{color:var(--green);background:color-mix(in srgb, var(--green) 14%, transparent)}
-  .fx{display:grid;grid-template-columns:1fr auto 1fr;align-items:start;gap:14px 14px;background:var(--panel);border:var(--sticker-border) solid var(--line);border-radius:10px;padding:14px 18px;box-shadow:var(--shadow)}
-  .fxgroup{grid-column:1/-1;display:flex;flex-direction:column;align-items:center;gap:7px;padding-bottom:12px;margin-bottom:2px;border-bottom:1px solid var(--line)}
-  .fxg-label{font-family:'Space Mono',monospace;font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--own-ink);background:var(--own-bg);padding:3px 11px;border-radius:999px}
-  .fxg-meta{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);text-align:center;white-space:nowrap}
-  .fx .t{font-family:'Archivo',sans-serif;font-weight:600;font-size:15px;min-width:0;text-align:center}
+  .fx.done{opacity:.78}
+  .fx.done::before{background:var(--green)}
+  .fx.done .fxg-label{color:#fff;background:var(--green)}
+  .fx{display:grid;grid-template-columns:1fr auto 1fr;align-items:start;gap:14px 14px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 20px 14px;box-shadow:var(--shadow);position:relative;overflow:hidden;transition:transform .15s ease, box-shadow .15s ease}
+  .fx:hover{transform:translateY(-1px);box-shadow:0 12px 28px -12px rgba(13,27,42,.22)}
+  .fx::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--amber)}
+  .fxgroup{grid-column:1/-1;display:flex;flex-direction:row;align-items:center;justify-content:space-between;gap:10px;padding:0 0 12px;margin:-4px -4px 10px;border-bottom:1px dashed var(--line);flex-wrap:wrap}
+  .fxg-label{font-family:'Space Mono',monospace;font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#fff;background:var(--amber);padding:4px 11px;border-radius:6px;box-shadow:0 2px 4px rgba(0,0,0,.08)}
+  .fxg-meta{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);text-align:right;white-space:nowrap}
+  .fx .t{font-family:'Archivo',sans-serif;font-weight:700;font-size:15px;min-width:0;text-align:center}
   .fx .t.h{text-align:center}
-  .fx .tn{display:flex;align-items:center;gap:7px;line-height:1.25;justify-content:center;flex-wrap:wrap}
+  .fx .tn{display:flex;align-items:center;gap:8px;line-height:1.25;justify-content:center;flex-wrap:wrap}
   .fx .t.h .tn{flex-direction:row;justify-content:center}
   .fx .t:not(.h) .tn{flex-direction:row;justify-content:center}
-  .fx .sc{font-family:'Space Mono',monospace;font-weight:700;font-size:18px;min-width:70px;text-align:center;color:var(--amber);line-height:1.25;display:flex;align-items:center;justify-content:center;min-height:24px}
-  .fx .sc.tbd{color:var(--muted);font-size:15px;font-weight:700}
+  .fx .sc{font-family:'Archivo Black',sans-serif;font-weight:900;font-size:18px;min-width:78px;text-align:center;color:var(--on-amber);background:var(--amber);line-height:1;display:flex;align-items:center;justify-content:center;min-height:34px;border-radius:8px;padding:6px 12px;letter-spacing:.04em;box-shadow:0 2px 6px rgba(0,0,0,.08)}
+  .fx .sc.tbd{color:var(--muted);font-size:12px;font-weight:700;background:var(--panel2);box-shadow:none;letter-spacing:.12em;font-family:'Space Mono',monospace}
   .fx .fxown{display:inline-block;font-family:'Space Mono',monospace;font-size:11px;font-weight:700;color:var(--own-ink);background:var(--own-bg);padding:2px 8px;border-radius:5px;letter-spacing:.02em;transform:rotate(var(--sticker-tilt,0deg))}
   .fx .fxownrow{flex-basis:100%;display:flex;flex-wrap:wrap;justify-content:center;gap:5px;margin-top:6px}
   .fx .fxownrow.single{flex-basis:auto;margin-top:0;margin-left:7px}
@@ -163,14 +171,16 @@
     .fx .t.h .tn{flex-direction:row;justify-content:center}
     .fx .t:not(.h) .tn{flex-direction:row;justify-content:center}
     .fx .fxownrow.single{flex-basis:100%;margin-top:6px;margin-left:0;justify-content:center}
-    .fx .sc{min-width:0;text-align:center;font-size:13px;color:var(--dim);font-weight:700;
-            display:flex;align-items:center;justify-content:center;padding:2px 0;margin:1px 0}
-    .fx .sc:not(.tbd){color:var(--amber);font-size:16px}
+    .fx .sc{min-width:64px;text-align:center;font-size:14px;
+            display:inline-flex;align-items:center;justify-content:center;padding:5px 14px;margin:4px auto;min-height:28px}
+    .fxgroup{justify-content:center;text-align:center}
+    .fxg-meta{text-align:center;width:100%}
 
     /* header */
     header{margin:12px 0 8px}
-    .hero-content{padding:24px 20px 22px}
-    h1{font-size:clamp(24px,7vw,34px);max-width:100%}
+    .hero-content{padding:24px 175px 22px 20px}
+    .hero-figures{right:10px;gap:3px}
+    h1{font-size:clamp(22px,6vw,30px)}
 
     /* pool rows: tighter */
     .lb{grid-template-columns:1fr}
@@ -186,7 +196,8 @@
     .gcard .flag{width:16px}
     .own{font-size:10.5px}
   }
-  .daterow{font-family:'Space Mono',monospace;font-size:14px;font-weight:700;letter-spacing:.1em;color:var(--ink);text-transform:uppercase;margin:26px 0 10px}
+  .daterow{font-family:'Space Mono',monospace;font-size:12px;font-weight:700;letter-spacing:.18em;color:var(--muted);text-transform:uppercase;margin:28px 0 12px;display:flex;align-items:center;gap:14px}
+  .daterow::before,.daterow::after{content:"";flex:1;height:1px;background:var(--line)}
   .konote{font-family:'Space Mono',monospace;font-size:13px;color:var(--muted);background:var(--panel);border:1px dashed var(--line);border-radius:12px;padding:22px;text-align:center}
 
   .flagbar{background:var(--flagbar-bg);border:1px solid var(--hot);border-radius:10px;padding:12px 16px;margin-bottom:20px;font-family:'Space Mono',monospace;font-size:12px;color:var(--flagbar-ink)}
@@ -219,8 +230,102 @@
       <circle cx="1090" cy="70" r="58" fill="none" stroke="var(--hero-line)" stroke-width="2" opacity="0.5"/>
       <rect x="0" y="286" width="1200" height="4" fill="url(#band)"/>
     </svg>
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+      <defs>
+        <symbol id="figurine" viewBox="0 0 60 170">
+          <!-- ground shadow under the rocking base -->
+          <ellipse cx="30" cy="168" rx="16" ry="3" fill="rgba(0,0,0,.32)"/>
+          <!-- Subbuteo base: flat disc on top (feet stand here), hemisphere bowl beneath -->
+          <!-- hemisphere bowl (curved underside): widest at the top, curves down to a rounded bottom -->
+          <path d="M7 146 Q7 168 30 168 Q53 168 53 146 Z" fill="#2d8f3a"/>
+          <!-- darker underside shadow of bowl -->
+          <path d="M9 152 Q12 168 30 168 Q48 168 51 152 Q47 165 30 165 Q13 165 9 152 Z" fill="rgba(0,0,0,.22)"/>
+          <!-- coloured rim band running around the top edge of the bowl -->
+          <ellipse cx="30" cy="146" rx="23" ry="4" fill="var(--base-rim,#ffffff)"/>
+          <!-- flat top disc (the standing surface) — slightly inset, lighter green -->
+          <ellipse cx="30" cy="145" rx="21" ry="3.2" fill="#3aa84e"/>
+          <!-- inner highlight on top disc -->
+          <ellipse cx="26" cy="144" rx="12" ry="1.4" fill="rgba(255,255,255,.35)"/>
+          <!-- glossy highlight on the curved bowl side (top-left) -->
+          <ellipse cx="14" cy="154" rx="3.5" ry="6" fill="rgba(255,255,255,.28)" transform="rotate(-18 14 154)"/>
+          <!-- shadow ring where feet meet the disc -->
+          <ellipse cx="30" cy="143.5" rx="8" ry="1.4" fill="rgba(0,0,0,.32)"/>
+          <!-- legs: socks (with subtle taper into base) -->
+          <path d="M21 120 Q21 118 23 118 L28 118 L28 146 L22 146 Q20 146 20.5 144 Z" fill="var(--kit-sock,#fff)"/>
+          <path d="M39 120 Q39 118 37 118 L32 118 L32 146 L38 146 Q40 146 39.5 144 Z" fill="var(--kit-sock,#fff)"/>
+          <!-- sock turnover band -->
+          <rect x="20.5" y="118" width="8" height="2.5" fill="var(--kit-sock-band,rgba(0,0,0,.18))"/>
+          <rect x="31.5" y="118" width="8" height="2.5" fill="var(--kit-sock-band,rgba(0,0,0,.18))"/>
+          <!-- shorts: trapezoid with center notch -->
+          <path d="M18 96 L42 96 L40 122 L32 122 L30 118 L28 122 L20 122 Z" fill="var(--kit-short,#1a1a1a)"/>
+          <!-- shirt: tapered torso, no wing sleeves -->
+          <path d="M18 68 Q18 64 22 62 L26 60 Q30 59 34 60 L38 62 Q42 64 42 68 L44 96 Q44 99 41 99 L19 99 Q16 99 16 96 Z" fill="var(--kit-shirt,#fff)"/>
+          <!-- LEFT ARM: hanging straight down the side of the torso -->
+          <!-- short sleeve over shoulder -->
+          <path d="M16 66 Q13 67 13 72 L14 82 Q16 83 18 82 L20 70 Z" fill="var(--kit-shirt,#fff)"/>
+          <!-- sleeve cuff shadow -->
+          <path d="M13.5 81 L18.5 81 L18.7 83 L13.7 83 Z" fill="rgba(0,0,0,.18)"/>
+          <!-- forearm: straight down the side, hugging the torso -->
+          <path d="M14 82 L14 97 Q14 99 16 99 L18 99 Q19.5 99 19.5 97 L19.5 82 Z" fill="#d9a479"/>
+          <!-- hand: small rounded shape at hip -->
+          <ellipse cx="16.75" cy="100.5" rx="3" ry="2.4" fill="#d9a479"/>
+
+          <!-- RIGHT ARM (mirror) -->
+          <path d="M44 66 Q47 67 47 72 L46 82 Q44 83 42 82 L40 70 Z" fill="var(--kit-shirt,#fff)"/>
+          <path d="M41.3 81 L46.5 81 L46.3 83 L41.3 83 Z" fill="rgba(0,0,0,.18)"/>
+          <path d="M46 82 L46 97 Q46 99 44 99 L42 99 Q40.5 99 40.5 97 L40.5 82 Z" fill="#d9a479"/>
+          <ellipse cx="43.25" cy="100.5" rx="3" ry="2.4" fill="#d9a479"/>
+
+          <!-- shading down the side -->
+          <path d="M18 68 L16 96 Q16 99 19 99 L21 99 L23 68 Z" fill="rgba(0,0,0,.08)"/>
+          <!-- collar: neck-band wrapping the neck base with a small v-notch in front -->
+          <path d="M24 60 Q24 58 26 58 L34 58 Q36 58 36 60 L36 62 L33 62 L30 65 L27 62 L24 62 Z" fill="var(--kit-collar,#111)"/>
+          <g class="kit-extra"></g>
+          <!-- neck -->
+          <rect x="27" y="56" width="6" height="6" fill="#c89870"/>
+          <!-- head: smaller, slightly oval -->
+          <ellipse cx="30" cy="48" rx="9" ry="10" fill="#d9a479"/>
+          <!-- hair: painted-on cap, follows skull line -->
+          <path d="M21 47 Q21 38 30 38 Q39 38 39 47 Q39 44 36 42 Q33 43 30 43 Q27 43 24 42 Q21 44 21 47 Z" fill="var(--hair,#3a2418)"/>
+          <!-- eyes: tiny dots -->
+          <circle cx="27" cy="50" r=".9" fill="#222"/>
+          <circle cx="33" cy="50" r=".9" fill="#222"/>
+          <!-- subtle mouth -->
+          <path d="M28 54 Q30 55 32 54" stroke="#7a4a2a" stroke-width=".7" fill="none" stroke-linecap="round"/>
+        </symbol>
+      </defs>
+    </svg>
+    <div class="hero-figures" aria-hidden="true">
+      <!-- Scotland: navy shirt, white shorts, red socks -->
+      <svg class="figure" viewBox="0 0 60 170" style="--kit-shirt:#0b3d91;--kit-collar:#ffffff;--kit-short:#ffffff;--kit-sock:#c8102e;--hair:#a85a2a;--base-rim:#0b3d91">
+        <use href="#figurine"/>
+      </svg>
+      <!-- Brazil: yellow shirt + green trim, blue shorts, white socks -->
+      <svg class="figure" viewBox="0 0 60 170" style="--kit-shirt:#fcd116;--kit-collar:#009c3b;--kit-short:#002776;--kit-sock:#ffffff;--hair:#1a0f08;--base-rim:#fcd116">
+        <use href="#figurine"/>
+      </svg>
+      <!-- England: white shirt, navy shorts, white socks -->
+      <svg class="figure" viewBox="0 0 60 170" style="--kit-shirt:#ffffff;--kit-collar:#c8102e;--kit-short:#0b1f55;--kit-sock:#ffffff;--hair:#5a3a1a;--base-rim:#c8102e">
+        <use href="#figurine"/>
+      </svg>
+      <!-- Argentina: sky-blue & white striped shirt, black shorts, white socks -->
+      <svg class="figure" viewBox="0 0 60 170" style="--kit-shirt:#75aadb;--kit-collar:#ffffff;--kit-short:#111111;--kit-sock:#ffffff;--hair:#2a1a10;--base-rim:#75aadb">
+        <use href="#figurine"/>
+        <g clip-path="url(#argShirtClip)">
+          <rect x="19.5" y="58" width="2.8" height="42" fill="#ffffff"/>
+          <rect x="25.1" y="58" width="2.8" height="42" fill="#ffffff"/>
+          <rect x="32.1" y="58" width="2.8" height="42" fill="#ffffff"/>
+          <rect x="37.7" y="58" width="2.8" height="42" fill="#ffffff"/>
+        </g>
+        <defs>
+          <clipPath id="argShirtClip">
+            <path d="M18 68 Q18 64 22 62 L26 60 Q30 59 34 60 L38 62 Q42 64 42 68 L44 96 Q44 99 41 99 L19 99 Q16 99 16 96 Z"/>
+          </clipPath>
+        </defs>
+      </svg>
+    </div>
     <div class="hero-content">
-      <div class="hero-marks" aria-hidden="true">
+      <div class="hero-marks">
         <svg class="mark" viewBox="0 0 48 48" role="img" aria-label="Trophy">
           <path fill="var(--amber)" d="M16 6h16v3h6a4 4 0 0 1 4 4v3a9 9 0 0 1-9 9h-1.6a8 8 0 0 1-5.4 4.7V37h5a2 2 0 0 1 2 2v3H15v-3a2 2 0 0 1 2-2h5v-7.3A8 8 0 0 1 16.6 25H15a9 9 0 0 1-9-9v-3a4 4 0 0 1 4-4h6V6Zm0 7h-6v3a5 5 0 0 0 5 5h1V13Zm16 0v8h1a5 5 0 0 0 5-5v-3h-6Z"/>
         </svg>
@@ -237,8 +342,8 @@
             <path d="M17.1 19.2l-5.7-3.4"/>
           </g>
         </svg>
+        <span class="kicker">Sweepstake · FIFA World Cup</span>
       </div>
-      <div class="kicker">Sweepstake · FIFA World Cup</div>
       <h1 id="title">World Cup <span class="hl">2026</span></h1>
       <div class="sub" id="subtitle"></div>
     </div>
@@ -328,7 +433,7 @@
 
   $("title").innerHTML = esc(D.meta.title).replace(/2026/,'<span class="hl">2026</span>');
   const hosts=[["United States","USA"],["Canada","Canada"],["Mexico","Mexico"]];
-  $("subtitle").innerHTML = hosts.map(([team,label])=>esc(label)+" "+flag(team)).join('<span class="subdot"> · </span>');
+  $("subtitle").innerHTML = hosts.map(([team])=>flag(team)).join('<span class="subdot"> · </span>');
   const dt = new Date(D.builtAt);
   $("built").innerHTML = "LAST UPDATED<br>"+dt.toLocaleDateString("en-GB",{day:"2-digit",month:"short"})+" · "+dt.toLocaleTimeString("en-GB",{hour:"2-digit",minute:"2-digit"});
   $("foot").textContent = "Updated when results change · Static build · "+D.leaderboard.length+" players · 48 teams";
