@@ -9,7 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;600;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
   :root, [data-theme="light"]{
-    --bg:#f5f7fa; --panel:#ffffff; --panel2:#eef2f7; --line:#e4e9f0;
+    --bg:#f1f5ec; --panel:#ffffff; --panel2:#eef2f7; --line:#e4e9f0;
     --ink:#0d1b2a; --muted:#5b6b80; --dim:#9aa7b8;
     --amber:#0a84ff; --hot:#ff3b30; --green:#1aa05a; --blue:#0a84ff;
     --shadow:0 8px 24px -12px rgba(13,27,42,.18);
@@ -55,13 +55,13 @@
 
   header{position:relative;margin:18px 0 8px;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--panel);box-shadow:var(--shadow)}
   .hero-bg{position:absolute;inset:0;width:100%;height:100%;z-index:0}
-  .hero-content{position:relative;z-index:1;padding:34px clamp(180px, 34vw, 400px) 30px 32px}
+  .hero-content{position:relative;z-index:1;padding:34px clamp(180px, 40vw, 420px) 30px 32px}
   .hero-figures{position:absolute;right:20px;bottom:10px;z-index:1;display:flex;align-items:flex-end;gap:4px;pointer-events:none}
-  .hero-figures .figure{width:clamp(38px, 7.5vw, 88px);height:auto;display:block;filter:drop-shadow(0 6px 5px rgba(0,0,0,.22))}
+  .hero-figures .figure{height:clamp(108px, 26vw, 230px);width:auto;display:block;filter:drop-shadow(0 6px 5px rgba(0,0,0,.22))}
   .hero-marks{display:flex;align-items:center;gap:10px;margin-bottom:16px}
   .hero-marks .mark{width:40px;height:40px;display:block;flex-shrink:0}
   .hero-marks .kicker{margin-bottom:0;margin-left:6px}
-  .kicker{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.35em;color:var(--amber);text-transform:uppercase;margin-bottom:14px}
+  .kicker{font-family:'Archivo',sans-serif;font-weight:800;font-size:16px;letter-spacing:.22em;color:var(--amber);text-transform:uppercase;margin-bottom:14px}
   h1{font-family:'Archivo Black',sans-serif;font-size:clamp(28px,4.8vw,48px);line-height:.96;letter-spacing:-.02em;text-transform:uppercase}
   h1 .hl{color:var(--amber)}
   .sub{font-family:'Space Mono',monospace;color:var(--muted);margin-top:14px;font-size:14px;letter-spacing:.1em;display:flex;flex-wrap:wrap;align-items:center;gap:2px}
@@ -99,8 +99,10 @@
   .chip .flag{width:16px}
   .chip.out{color:var(--dim);text-decoration:line-through;opacity:.6}
   .chip.champ{border-color:var(--amber);color:var(--amber)}
-  .alivebox{text-align:right}
+  .alivebox{text-align:right;display:flex;flex-direction:column;align-items:flex-end;gap:2px}
   .alivenum{font-family:'Archivo Black',sans-serif;font-size:24px;line-height:1}
+  .alivelbl{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);line-height:1.1}
+  .lbrow.exited .alivelbl{color:var(--dim)}
   .pwon{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
   .medal{font-family:'Space Mono',monospace;font-size:11px;padding:3px 9px;border-radius:6px;background:var(--medal-bg);border:1px solid var(--amber);color:var(--amber)}
 
@@ -119,20 +121,24 @@
   .gcard{background:var(--panel);border:var(--sticker-border) solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow)}
   .ghead{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--line);background:var(--panel2)}
   .gletter{font-family:'Archivo Black',sans-serif;font-size:18px;background:var(--amber);color:var(--on-amber);width:30px;height:30px;border-radius:8px;display:grid;place-items:center}
-  .ghead h3{font-family:'Archivo',sans-serif;font-weight:900;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
-  table{width:100%;border-collapse:collapse;font-family:'Space Mono',monospace;font-size:14px}
-  th{font-size:11px;letter-spacing:.1em;color:var(--dim);text-transform:uppercase;text-align:center;padding:8px 4px;font-weight:400}
-  th:first-child{text-align:left;padding-left:16px}
-  td{padding:9px 4px;text-align:center;border-top:1px solid var(--line)}
-  td:first-child{text-align:left;padding-left:16px;font-family:'Archivo',sans-serif;font-weight:600;font-size:15px}
-  .statempty{color:var(--dim);opacity:.5}
-  tr.q1 td:first-child{box-shadow:inset 3px 0 var(--green)}
-  tr.q2 td:first-child{box-shadow:inset 3px 0 var(--blue)}
-  tr.q3 td:first-child{box-shadow:inset 3px 0 var(--amber)}
-  .ownwrap{display:flex;flex-wrap:wrap;gap:5px;margin-top:7px}
-  .own{font-family:'Space Mono',monospace;font-size:12px;font-weight:700;color:var(--own-ink);background:var(--own-bg);display:inline-block;padding:2px 8px;border-radius:5px;letter-spacing:.02em;transform:rotate(var(--sticker-tilt,0deg))}
+  .ghead h3{font-family:'Space Mono',monospace;font-weight:400;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--dim)}
+  table{width:100%;border-collapse:collapse;font-family:'Space Mono',monospace;font-size:13.5px}
+  th{font-size:10px;letter-spacing:.14em;color:var(--dim);text-transform:uppercase;text-align:center;padding:10px 6px 8px;font-weight:600;width:32px}
+  th:first-child{text-align:left;padding-left:16px;width:auto}
+  th:last-child{padding-right:14px;width:42px}
+  td{padding:10px 6px;text-align:center;border-top:1px solid var(--line);color:var(--muted);vertical-align:middle;white-space:nowrap}
+  td:first-child{text-align:left;padding-left:16px;font-family:'Archivo',sans-serif;font-weight:600;font-size:14.5px;color:var(--ink);white-space:normal}
+  td:last-child{padding-right:14px}
+  tbody tr:hover td{background:var(--panel2)}
+  .statempty{color:var(--dim);opacity:.45;font-size:12px}
+  tr.q1 td:first-child{box-shadow:inset 2px 0 var(--green)}
+  tr.q2 td:first-child{box-shadow:inset 2px 0 var(--blue)}
+  tr.q3 td:first-child{box-shadow:inset 2px 0 var(--amber)}
+  .teamcell{display:flex;align-items:center;gap:8px;flex-wrap:wrap;row-gap:4px}
+  .teamname{display:inline-flex;align-items:center;gap:8px}
+  .own{font-family:'Space Mono',monospace;font-size:11px;font-weight:700;color:var(--own-ink);background:var(--own-bg);display:inline-block;padding:2px 7px;border-radius:5px;letter-spacing:.02em}
   .flag{width:22px;height:auto;vertical-align:middle;border-radius:3px;box-shadow:0 0 0 1px var(--flag-ring);object-fit:cover}
-  .pts{color:var(--ink);font-weight:700}
+  .pts{color:var(--ink);font-weight:700;font-size:14.5px}
   .legend{display:flex;gap:18px;flex-wrap:wrap;font-family:'Space Mono',monospace;font-size:11px;color:var(--muted);margin:0 0 20px}
   .dot{display:inline-block;width:9px;height:9px;border-radius:3px;margin-right:6px;vertical-align:middle}
 
@@ -189,10 +195,12 @@
 
     /* group standings: 7 cols fit 375px */
     .gcard table{font-size:12.5px}
-    th{font-size:10px;padding:7px 3px}
+    th{font-size:10px;padding:7px 3px;width:26px}
     th:first-child,td:first-child{padding-left:10px}
+    th:last-child{width:34px;padding-right:10px}
     td{padding:8px 3px}
     td:first-child{font-size:13.5px}
+    td:last-child{padding-right:10px}
     .gcard .flag{width:16px}
     .own{font-size:10.5px}
   }
@@ -326,25 +334,22 @@
     </div>
     <div class="hero-content">
       <div class="hero-marks">
-        <svg class="mark" viewBox="0 0 48 48" role="img" aria-label="Trophy">
-          <path fill="var(--amber)" d="M16 6h16v3h6a4 4 0 0 1 4 4v3a9 9 0 0 1-9 9h-1.6a8 8 0 0 1-5.4 4.7V37h5a2 2 0 0 1 2 2v3H15v-3a2 2 0 0 1 2-2h5v-7.3A8 8 0 0 1 16.6 25H15a9 9 0 0 1-9-9v-3a4 4 0 0 1 4-4h6V6Zm0 7h-6v3a5 5 0 0 0 5 5h1V13Zm16 0v8h1a5 5 0 0 0 5-5v-3h-6Z"/>
+        <svg class="mark" viewBox="0 0 24 24" role="img" aria-label="Trophy" fill="none" stroke="var(--amber)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M10 14.66v1.626a2 2 0 0 1-.976 1.696A5 5 0 0 0 7 21.978"/>
+          <path d="M14 14.66v1.626a2 2 0 0 0 .976 1.696A5 5 0 0 1 17 21.978"/>
+          <path d="M18 9h1.5a1 1 0 0 0 0-5H18"/>
+          <path d="M4 22h16"/>
+          <path d="M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1z"/>
+          <path d="M6 9H4.5a1 1 0 0 1 0-5H6"/>
         </svg>
-        <svg class="mark" viewBox="0 0 48 48" role="img" aria-label="Football">
-          <circle cx="24" cy="24" r="19" fill="var(--amber)"/>
-          <g fill="var(--panel)">
-            <path d="M24 14.2l6.9 5-2.64 8.12h-8.52L17.1 19.2 24 14.2Z"/>
-          </g>
-          <g stroke="var(--panel)" stroke-width="2.2" stroke-linecap="round" fill="none">
-            <path d="M24 14.2V7.5"/>
-            <path d="M30.9 19.2l5.7-3.4"/>
-            <path d="M28.26 27.32l4 5.3"/>
-            <path d="M19.74 27.32l-4 5.3"/>
-            <path d="M17.1 19.2l-5.7-3.4"/>
-          </g>
+        <svg class="mark" viewBox="0 0 24 24" role="img" aria-label="Football" fill="none" stroke="var(--amber)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/>
+          <path d="M12 7l4.76 3.45l-1.76 5.55h-6l-1.76 -5.55l4.76 -3.45"/>
+          <path d="M12 7v-4m3 13l2.5 3m-.74 -8.55l3.74 -1.45m-11.44 7.05l-2.56 2.95m.74 -8.55l-3.74 -1.45"/>
         </svg>
-        <span class="kicker">Kennedy and friends</span>
+        <span class="kicker" id="kicker">FIFA World Cup <span class="hl">2026</span></span>
       </div>
-      <h1 id="title">World Cup <span class="hl">2026</span></h1>
+      <h1 id="title">Kennedy <span class="hl">Sweepstake</span></h1>
       <div class="sub" id="subtitle"></div>
     </div>
   </header>
@@ -353,7 +358,7 @@
 
   <section id="tab-standings" class="show">
     <div class="fxbar">
-      <div class="sectitle" style="margin:0">The Pool · Teams Still Active</div>
+      <div class="sectitle" style="margin:0">Teams Still Active</div>
       <button id="poolToggle" class="fxfilter" aria-pressed="false">Show exited</button>
     </div>
     <div class="lb" id="leaderboard"></div>
@@ -433,7 +438,7 @@
       'onerror="this.style.display=\'none\'">';
   }
 
-  $("title").innerHTML = esc(D.meta.title).replace(/2026/,'<span class="hl">2026</span>');
+  $("kicker").innerHTML = esc(D.meta.title).replace(/2026/,'<span class="hl">2026</span>');
   const hosts=[["United States","USA"],["Canada","Canada"],["Mexico","Mexico"]];
   $("subtitle").innerHTML = hosts.map(([team])=>flag(team)).join('<span class="subdot"> · </span>');
   const dt = new Date(D.builtAt);
@@ -475,7 +480,7 @@
       '<div class="pinfo"><div class="pname">'+esc(p.person)+'</div>'+
         '<div class="teams">'+chips+'</div>'+
         (medals?'<div class="pwon">'+medals+'</div>':'')+'</div>'+
-      '<div class="alivebox"><div class="alivenum">'+p.alive.length+'</div></div>';
+      '<div class="alivebox"><div class="alivenum">'+p.alive.length+'</div><div class="alivelbl">'+(p.alive.length===1?'team left':'teams left')+'</div></div>';
     return row;
   }
   function renderPool(){
@@ -518,7 +523,7 @@
       const o=ownTags(r.team);
       const np=r.P===0;
       const dash=v=>np?'<span class="statempty">–</span>':v;
-      return '<tr class="'+qual+'"><td>'+flag(r.team)+' '+esc(r.team)+(o?'<span class="ownwrap">'+o+'</span>':'')+
+      return '<tr class="'+qual+'"><td><div class="teamcell"><span class="teamname">'+flag(r.team)+' '+esc(r.team)+'</span>'+o+'</div>'+
         '</td><td>'+dash(r.P)+'</td><td>'+dash(r.W)+'</td><td>'+dash(r.D)+'</td><td>'+dash(r.L)+'</td>'+
         '<td>'+dash((r.GD>0?"+":"")+r.GD)+'</td>'+
         '<td class="pts">'+dash(r.Pts)+'</td></tr>';

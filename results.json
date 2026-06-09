@@ -1,7 +1,7 @@
 {
   "_comment": "EDIT THIS FILE TO UPDATE THE SWEEPSTAKE. Push to GitHub and the site rebuilds automatically. See README for instructions.",
   "meta": {
-    "title": "World Cup 2026"
+    "title": "FIFA World Cup 2026"
   },
   "_allocations_comment": "Map each person to the teams they drew. Use the EXACT team names from the groups below. Add/remove people freely.",
   "allocations": {
