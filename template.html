@@ -56,7 +56,7 @@
   }
   .wrap{max-width:1180px;margin:0 auto;padding:0 20px 90px;position:relative;z-index:2}
 
-  header{position:relative;margin:18px 0 8px;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--panel);box-shadow:var(--shadow)}
+  header{position:relative;margin:18px 0 8px;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--panel);box-shadow:var(--shadow);min-height:calc(clamp(108px, 26vw, 230px) + 24px)}
   .hero-bg{position:absolute;inset:0;width:100%;height:100%;z-index:0}
   .hero-content{position:relative;z-index:1;padding:34px clamp(180px, 40vw, 420px) 30px 32px}
   .hero-figures{position:absolute;right:20px;bottom:10px;z-index:1;display:flex;align-items:flex-end;gap:4px;pointer-events:none}
@@ -251,94 +251,178 @@
       <defs>
         <symbol id="figurine" viewBox="0 0 60 170">
           <!-- ground shadow under the rocking base -->
-          <ellipse cx="30" cy="168" rx="16" ry="3" fill="rgba(0,0,0,.32)"/>
-          <!-- Subbuteo base: flat disc on top (feet stand here), hemisphere bowl beneath -->
-          <!-- hemisphere bowl (curved underside): widest at the top, curves down to a rounded bottom -->
-          <path d="M7 146 Q7 168 30 168 Q53 168 53 146 Z" fill="#2d8f3a"/>
+          <ellipse cx="30" cy="168" rx="19" ry="3" fill="rgba(0,0,0,.32)"/>
+          <!-- Subbuteo base: chunky hemisphere with painted rim and inset standing disc -->
+          <!-- hemisphere bowl: wider, more pronounced curve -->
+          <path d="M5 142 Q5 168 30 168 Q55 168 55 142 Z" fill="#2d8f3a"/>
           <!-- darker underside shadow of bowl -->
-          <path d="M9 152 Q12 168 30 168 Q48 168 51 152 Q47 165 30 165 Q13 165 9 152 Z" fill="rgba(0,0,0,.22)"/>
+          <path d="M8 150 Q12 167 30 167 Q48 167 52 150 Q47 164 30 164 Q13 164 8 150 Z" fill="rgba(0,0,0,.24)"/>
           <!-- coloured rim band running around the top edge of the bowl -->
-          <ellipse cx="30" cy="146" rx="23" ry="4" fill="var(--base-rim,#ffffff)"/>
+          <ellipse cx="30" cy="142" rx="25" ry="4.5" fill="var(--base-rim,#ffffff)"/>
           <!-- flat top disc (the standing surface) — slightly inset, lighter green -->
-          <ellipse cx="30" cy="145" rx="21" ry="3.2" fill="#3aa84e"/>
+          <ellipse cx="30" cy="141" rx="22.5" ry="3.5" fill="#3aa84e"/>
           <!-- inner highlight on top disc -->
-          <ellipse cx="26" cy="144" rx="12" ry="1.4" fill="rgba(255,255,255,.35)"/>
+          <ellipse cx="25" cy="140" rx="13" ry="1.5" fill="rgba(255,255,255,.38)"/>
           <!-- glossy highlight on the curved bowl side (top-left) -->
-          <ellipse cx="14" cy="154" rx="3.5" ry="6" fill="rgba(255,255,255,.28)" transform="rotate(-18 14 154)"/>
+          <ellipse cx="12" cy="151" rx="4" ry="7" fill="rgba(255,255,255,.3)" transform="rotate(-18 12 151)"/>
           <!-- shadow ring where feet meet the disc -->
-          <ellipse cx="30" cy="143.5" rx="8" ry="1.4" fill="rgba(0,0,0,.32)"/>
-          <!-- legs: socks (with subtle taper into base) -->
-          <path d="M21 120 Q21 118 23 118 L28 118 L28 146 L22 146 Q20 146 20.5 144 Z" fill="var(--kit-sock,#fff)"/>
-          <path d="M39 120 Q39 118 37 118 L32 118 L32 146 L38 146 Q40 146 39.5 144 Z" fill="var(--kit-sock,#fff)"/>
-          <!-- sock turnover band -->
-          <rect x="20.5" y="118" width="8" height="2.5" fill="var(--kit-sock-band,rgba(0,0,0,.18))"/>
-          <rect x="31.5" y="118" width="8" height="2.5" fill="var(--kit-sock-band,rgba(0,0,0,.18))"/>
-          <!-- shorts: trapezoid with center notch -->
-          <path d="M18 96 L42 96 L40 122 L32 122 L30 118 L28 122 L20 122 Z" fill="var(--kit-short,#1a1a1a)"/>
-          <!-- shirt: tapered torso, no wing sleeves -->
-          <path d="M18 68 Q18 64 22 62 L26 60 Q30 59 34 60 L38 62 Q42 64 42 68 L44 96 Q44 99 41 99 L19 99 Q16 99 16 96 Z" fill="var(--kit-shirt,#fff)"/>
-          <!-- LEFT ARM: hanging straight down the side of the torso -->
-          <!-- short sleeve over shoulder -->
-          <path d="M16 66 Q13 67 13 72 L14 82 Q16 83 18 82 L20 70 Z" fill="var(--kit-shirt,#fff)"/>
+          <ellipse cx="30" cy="139" rx="10" ry="1.6" fill="rgba(0,0,0,.32)"/>
+
+          <!-- thighs: bare skin between shorts hem and sock top -->
+          <rect x="22" y="110" width="6.5" height="10" fill="var(--skin,#d9a479)"/>
+          <rect x="31.5" y="110" width="6" height="10" fill="var(--skin,#d9a479)"/>
+          <!-- thigh inner shadow -->
+          <rect x="28" y="110" width="1" height="10" fill="rgba(0,0,0,.18)"/>
+          <rect x="31.5" y="110" width="1" height="10" fill="rgba(0,0,0,.18)"/>
+          <!-- socks: knee-down only -->
+          <path d="M22 120 L28.5 120 L28.5 141 L23 141 Q21 141 21.5 139 Z" fill="var(--kit-sock,#fff)"/>
+          <path d="M37.5 120 L31.5 120 L31.5 141 L37 141 Q39 141 38.5 139 Z" fill="var(--kit-sock,#fff)"/>
+          <!-- sock turnover band at the top -->
+          <rect x="21.5" y="120" width="7" height="2.5" fill="var(--kit-sock-band,rgba(0,0,0,.2))"/>
+          <rect x="31.5" y="120" width="7" height="2.5" fill="var(--kit-sock-band,rgba(0,0,0,.2))"/>
+
+          <!-- shorts: short trapezoid with center notch -->
+          <path d="M16 90 L44 90 L42 110 L32 110 L30 106 L28 110 L18 110 Z" fill="var(--kit-short,#1a1a1a)"/>
+          <!-- short hem shadow -->
+          <path d="M18 109 L28 109 L30 106 L32 109 L42 109 L42 110 L32 110 L30 106.5 L28 110 L18 110 Z" fill="rgba(0,0,0,.18)"/>
+
+          <!-- shirt: chunky barrel torso, hips wider than shoulders, no wing sleeves -->
+          <path d="M19 64 Q19 60 23 58 Q27 56 30 56 Q33 56 37 58 Q41 60 41 64 L44 91 Q44 94 41 94 L19 94 Q16 94 16 91 Z" fill="var(--kit-shirt,#fff)"/>
+
+          <!-- LEFT ARM: stubby, hanging tight against torso -->
+          <path d="M17 64 Q13 65 13 70 L13.5 78 Q15 79 17.5 78 L19.5 68 Z" fill="var(--kit-shirt,#fff)"/>
           <!-- sleeve cuff shadow -->
-          <path d="M13.5 81 L18.5 81 L18.7 83 L13.7 83 Z" fill="rgba(0,0,0,.18)"/>
-          <!-- forearm: straight down the side, hugging the torso -->
-          <path d="M14 82 L14 97 Q14 99 16 99 L18 99 Q19.5 99 19.5 97 L19.5 82 Z" fill="#d9a479"/>
+          <path d="M13 77 L17.8 77 L18 79 L13.2 79 Z" fill="rgba(0,0,0,.2)"/>
+          <!-- forearm: short, tucked against side -->
+          <path d="M13.5 78 L14 91 Q14 94 16.5 94 L18.5 94 Q20 94 20 92 L20 78 Z" fill="var(--skin,#d9a479)"/>
           <!-- hand: small rounded shape at hip -->
-          <ellipse cx="16.75" cy="100.5" rx="3" ry="2.4" fill="#d9a479"/>
+          <ellipse cx="17" cy="95.5" rx="3.2" ry="2.6" fill="var(--skin,#d9a479)"/>
 
           <!-- RIGHT ARM (mirror) -->
-          <path d="M44 66 Q47 67 47 72 L46 82 Q44 83 42 82 L40 70 Z" fill="var(--kit-shirt,#fff)"/>
-          <path d="M41.3 81 L46.5 81 L46.3 83 L41.3 83 Z" fill="rgba(0,0,0,.18)"/>
-          <path d="M46 82 L46 97 Q46 99 44 99 L42 99 Q40.5 99 40.5 97 L40.5 82 Z" fill="#d9a479"/>
-          <ellipse cx="43.25" cy="100.5" rx="3" ry="2.4" fill="#d9a479"/>
+          <path d="M43 64 Q47 65 47 70 L46.5 78 Q45 79 42.5 78 L40.5 68 Z" fill="var(--kit-shirt,#fff)"/>
+          <path d="M42.2 77 L47 77 L46.8 79 L42 79 Z" fill="rgba(0,0,0,.2)"/>
+          <path d="M46.5 78 L46 91 Q46 94 43.5 94 L41.5 94 Q40 94 40 92 L40 78 Z" fill="var(--skin,#d9a479)"/>
+          <ellipse cx="43" cy="95.5" rx="3.2" ry="2.6" fill="var(--skin,#d9a479)"/>
 
-          <!-- shading down the side -->
-          <path d="M18 68 L16 96 Q16 99 19 99 L21 99 L23 68 Z" fill="rgba(0,0,0,.08)"/>
-          <!-- collar: neck-band wrapping the neck base with a small v-notch in front -->
-          <path d="M24 60 Q24 58 26 58 L34 58 Q36 58 36 60 L36 62 L33 62 L30 65 L27 62 L24 62 Z" fill="var(--kit-collar,#111)"/>
+          <!-- shading down the body sides -->
+          <path d="M19 64 L17 91 Q17 94 20 94 L22 94 L23 64 Z" fill="rgba(0,0,0,.09)"/>
+          <path d="M41 64 L43 91 Q43 94 40 94 L38 94 L37 64 Z" fill="rgba(255,255,255,.06)"/>
+
+          <!-- collar: chunky painted band with v-notch -->
+          <path d="M24 56 Q24 53 27 53 L33 53 Q36 53 36 56 L36 60 L33 60 L30 64 L27 60 L24 60 Z" fill="var(--kit-collar,#111)"/>
+          <!-- neck: short skin column in front of the collar, with rounded bottom dipping into the V -->
+          <path d="M26.5 51 L33.5 51 L33.5 56 Q32 58.5 30 58.5 Q28 58.5 26.5 56 Z" fill="var(--skin,#d9a479)"/>
+          <!-- neck shadow on the right side -->
+          <path d="M32 51 L33.5 51 L33.5 56 Q33 57.5 32 58 Z" fill="rgba(0,0,0,.15)"/>
           <g class="kit-extra"></g>
-          <!-- neck -->
-          <rect x="27" y="56" width="6" height="6" fill="#c89870"/>
-          <!-- head: smaller, slightly oval -->
-          <ellipse cx="30" cy="48" rx="9" ry="10" fill="#d9a479"/>
-          <!-- hair: painted-on cap, follows skull line -->
-          <path d="M21 47 Q21 38 30 38 Q39 38 39 47 Q39 44 36 42 Q33 43 30 43 Q27 43 24 42 Q21 44 21 47 Z" fill="var(--hair,#3a2418)"/>
-          <!-- eyes: tiny dots -->
-          <circle cx="27" cy="50" r=".9" fill="#222"/>
-          <circle cx="33" cy="50" r=".9" fill="#222"/>
-          <!-- subtle mouth -->
-          <path d="M28 54 Q30 55 32 54" stroke="#7a4a2a" stroke-width=".7" fill="none" stroke-linecap="round"/>
+
+          <!-- head: large, round — sits above the neck -->
+          <circle cx="30" cy="39" r="13" fill="var(--skin,#d9a479)"/>
+          <!-- hair: painted-on cap covering top of skull -->
+          <path d="M18 37 Q18 26 30 26 Q42 26 42 37 Q42 33 38 30 Q34 32 30 32 Q26 32 22 30 Q18 33 18 37 Z" fill="var(--hair,#3a2418)"/>
+          <!-- ear hints -->
+          <ellipse cx="17.5" cy="40" rx="1.1" ry="1.8" fill="var(--skin-ear,#c89870)"/>
+          <ellipse cx="42.5" cy="40" rx="1.1" ry="1.8" fill="var(--skin-ear,#c89870)"/>
         </symbol>
       </defs>
     </svg>
     <div class="hero-figures" aria-hidden="true">
-      <!-- Scotland: navy shirt, white shorts, red socks -->
-      <svg class="figure" viewBox="0 0 60 170" style="--kit-shirt:#0b3d91;--kit-collar:#ffffff;--kit-short:#ffffff;--kit-sock:#c8102e;--hair:#a85a2a;--base-rim:#0b3d91">
+      <!-- Scotland: navy shirt, white shorts, red socks — McTominay-style voluminous swept-back hair + stubble -->
+      <svg class="figure" viewBox="0 0 60 170" style="--kit-shirt:#051f4a;--kit-collar:#ffffff;--kit-short:#051f4a;--kit-sock:#051f4a;--hair:#8a6a3a;--base-rim:#051f4a">
         <use href="#figurine"/>
+        <!-- voluminous swept-back hair with a slight peak, longer at the sides -->
+        <path d="M16 43 Q15 28 23 25 Q26 23 30 23 Q34 23 37 24 Q45 27 44 43 Q44 39 42 36 Q40 35 38 36 Q34 32 30 32 Q26 32 22 36 Q20 35 18 36 Q16 39 16 43 Z" fill="#8a6a3a"/>
+        <!-- sideburn hints extending past the ear -->
+        <path d="M16.5 43 Q16 47 18 47.5 L19 44 Z" fill="#8a6a3a"/>
+        <path d="M43.5 43 Q44 47 42 47.5 L41 44 Z" fill="#8a6a3a"/>
+        <!-- heavy stubble: shadow along jaw + chin + upper lip -->
+        <path d="M21 48 Q21 51.5 26 52.5 L34 52.5 Q39 51.5 39 48 Q38 50 34 50.5 L26 50.5 Q22 50 21 48 Z" fill="#8a6a3a" opacity=".4"/>
+        <path d="M26 46 Q30 47 34 46 Q33 46.7 30 46.7 Q27 46.7 26 46 Z" fill="#8a6a3a" opacity=".35"/>
+        <!-- eyes: round dots -->
+        <circle cx="26" cy="41" r="1.1" fill="#222"/>
+        <circle cx="34" cy="41" r="1.1" fill="#222"/>
+        <!-- thicker brows -->
+        <path d="M23.5 38.5 L28 38.5" stroke="#5c4220" stroke-width="1.1" stroke-linecap="round"/>
+        <path d="M32 38.5 L36.5 38.5" stroke="#5c4220" stroke-width="1.1" stroke-linecap="round"/>
+        <!-- focused half-smile -->
+        <path d="M27 47.5 Q30 49 33 47.5" stroke="#5c4220" stroke-width="1" fill="none" stroke-linecap="round"/>
+        <!-- Scotland badge: shield with lion rampant (simplified), centre chest -->
+        <path d="M27.5 68 L32.5 68 L32.5 71.5 Q32.5 73.5 30 74 Q27.5 73.5 27.5 71.5 Z" fill="#ffd84a" stroke="#051f4a" stroke-width=".3"/>
+        <path d="M29 70 Q29.5 69.5 30 70 Q30.5 70.5 31 70 L31 71.5 Q30 72.5 29 71.5 Z" fill="#c8102e"/>
       </svg>
-      <!-- Brazil: yellow shirt + green trim, blue shorts, white socks -->
-      <svg class="figure" viewBox="0 0 60 170" style="--kit-shirt:#fcd116;--kit-collar:#009c3b;--kit-short:#002776;--kit-sock:#ffffff;--hair:#1a0f08;--base-rim:#fcd116">
+      <!-- Brazil: yellow shirt + green trim, blue shorts, white socks — focused look -->
+      <svg class="figure" viewBox="0 0 60 170" style="--kit-shirt:#fcd116;--kit-collar:#009c3b;--kit-short:#002776;--kit-sock:#ffffff;--hair:#0a0604;--base-rim:#fcd116;--skin:#5c3a1f;--skin-ear:#3d2410">
         <use href="#figurine"/>
+        <!-- thicker brows -->
+        <path d="M24 38.5 L28 38.5" stroke="#0a0604" stroke-width="1.1" stroke-linecap="round"/>
+        <path d="M32 38.5 L36 38.5" stroke="#0a0604" stroke-width="1.1" stroke-linecap="round"/>
+        <!-- eyes: slightly narrowed -->
+        <ellipse cx="26" cy="41.2" rx="1.1" ry=".9" fill="#111"/>
+        <ellipse cx="34" cy="41.2" rx="1.1" ry=".9" fill="#111"/>
+        <!-- warm smile -->
+        <path d="M26.5 47.5 Q30 50 33.5 47.5" stroke="#2a1408" stroke-width="1" fill="none" stroke-linecap="round"/>
+        <!-- Brazil badge: green diamond with gold inner -->
+        <path d="M38.5 67.5 L42 71 L38.5 74.5 L35 71 Z" fill="#009c3b" stroke="#1a0f08" stroke-width=".3"/>
+        <path d="M38.5 69 L40.5 71 L38.5 73 L36.5 71 Z" fill="#fcd116"/>
+        <circle cx="38.5" cy="71" r=".7" fill="#002776"/>
       </svg>
-      <!-- England: white shirt, navy shorts, white socks -->
-      <svg class="figure" viewBox="0 0 60 170" style="--kit-shirt:#ffffff;--kit-collar:#c8102e;--kit-short:#0b1f55;--kit-sock:#ffffff;--hair:#5a3a1a;--base-rim:#c8102e">
+      <!-- England: white shirt, navy shorts, white socks — blonde longer hair, cheeky smile, rosy cheeks -->
+      <svg class="figure" viewBox="0 0 60 170" style="--kit-shirt:#ffffff;--kit-collar:#c8102e;--kit-short:#0b1f55;--kit-sock:#ffffff;--hair:#a87a2e;--base-rim:#c8102e">
         <use href="#figurine"/>
+        <!-- styled blonde hair: shorter cap with side-swept fringe and lifted front -->
+        <path d="M17 38 Q16 26 23 24 Q26 23 30 23 Q34 23 37 24 Q44 26 43 38 Q43 34 40 32 Q37 33 33 33 Q30 32 27 33 Q22 33 20 33 Q17 35 17 38 Z" fill="#a87a2e"/>
+        <!-- side-swept fringe sweeping from left to right across the forehead -->
+        <path d="M22 32 Q28 30 36 34 Q34 35 30 35 Q26 35 22 34 Z" fill="#a87a2e"/>
+        <!-- eyes -->
+        <circle cx="26" cy="41" r="1.1" fill="#222"/>
+        <circle cx="34" cy="41" r="1.1" fill="#222"/>
+        <!-- lopsided smirk -->
+        <path d="M27 47.5 Q30 49 33 48" stroke="#7a4a2a" stroke-width=".9" fill="none" stroke-linecap="round"/>
+        <!-- England badge: three lions shield (simplified to three dots on a red cross shield) -->
+        <path d="M36 68 L41 68 L41 71.5 Q41 73.5 38.5 74 Q36 73.5 36 71.5 Z" fill="#f2f2f2" stroke="#0b1f55" stroke-width=".3"/>
+        <circle cx="38.5" cy="69.5" r=".55" fill="#c8102e"/>
+        <circle cx="38.5" cy="71.1" r=".55" fill="#c8102e"/>
+        <circle cx="38.5" cy="72.7" r=".55" fill="#c8102e"/>
       </svg>
-      <!-- Argentina: sky-blue & white striped shirt, black shorts, white socks -->
-      <svg class="figure" viewBox="0 0 60 170" style="--kit-shirt:#75aadb;--kit-collar:#ffffff;--kit-short:#111111;--kit-sock:#ffffff;--hair:#2a1a10;--base-rim:#75aadb">
+      <!-- Argentina: sky-blue & white striped shirt, black shorts, white socks — Messi-style hair + beard -->
+      <svg class="figure" viewBox="0 0 60 170" style="--kit-shirt:#75aadb;--kit-collar:#ffffff;--kit-short:#111111;--kit-sock:#ffffff;--hair:#4a3018;--base-rim:#75aadb">
         <use href="#figurine"/>
+        <!-- Messi-style fringe falling onto forehead, slight side-sweep -->
+        <path d="M18 37 Q18 23 30 23 Q42 23 42 37 Q42 35 40 33 Q38 37 35 38 Q32 39 30 38 Q26 39 22 37 Q20 35 18 37 Z" fill="#4a3018"/>
+        <!-- side-swept lock falling over right brow -->
+        <path d="M34 34 Q38 35 40 39 Q39 40 36 39 Q34 38 33 36 Z" fill="#2f1d0e"/>
+        <!-- short beard (chin + jawline) — stays above the neck line -->
+        <path d="M22 48 Q23 50.5 26 51 L34 51 Q37 50.5 38 48 Q37 50 34 50.3 L26 50.3 Q23 50 22 48 Z" fill="#2f1d0e" opacity=".8"/>
+        <!-- moustache hint -->
+        <path d="M27 46.5 Q30 47.2 33 46.5" stroke="#2f1d0e" stroke-width=".8" fill="none" stroke-linecap="round"/>
         <g clip-path="url(#argShirtClip)">
-          <rect x="19.5" y="58" width="2.8" height="42" fill="#ffffff"/>
-          <rect x="25.1" y="58" width="2.8" height="42" fill="#ffffff"/>
-          <rect x="32.1" y="58" width="2.8" height="42" fill="#ffffff"/>
-          <rect x="37.7" y="58" width="2.8" height="42" fill="#ffffff"/>
+          <rect x="18.5" y="56" width="3" height="40" fill="#ffffff"/>
+          <rect x="24.5" y="56" width="3" height="40" fill="#ffffff"/>
+          <rect x="32.5" y="56" width="3" height="40" fill="#ffffff"/>
+          <rect x="38.5" y="56" width="3" height="40" fill="#ffffff"/>
         </g>
         <defs>
           <clipPath id="argShirtClip">
-            <path d="M18 68 Q18 64 22 62 L26 60 Q30 59 34 60 L38 62 Q42 64 42 68 L44 96 Q44 99 41 99 L19 99 Q16 99 16 96 Z"/>
+            <path d="M19 64 Q19 60 23 58 Q27 56 30 56 Q33 56 37 58 Q41 60 41 64 L44 91 Q44 94 41 94 L19 94 Q16 94 16 91 Z"/>
           </clipPath>
         </defs>
+        <!-- raised left brow, slight smirk -->
+        <path d="M24 38 L28 39" stroke="#2f1d0e" stroke-width="1" stroke-linecap="round"/>
+        <path d="M32 38.5 L36 38.5" stroke="#2f1d0e" stroke-width="1" stroke-linecap="round"/>
+        <!-- eyes -->
+        <circle cx="26" cy="41" r="1.1" fill="#222"/>
+        <circle cx="34" cy="41" r="1.1" fill="#222"/>
+        <!-- slight asymmetric smirk -->
+        <path d="M27 48 Q30 48.5 33 47" stroke="#7a4a2a" stroke-width=".9" fill="none" stroke-linecap="round"/>
+        <!-- Argentina badge: golden sun on shield -->
+        <path d="M36 68 L41 68 L41 71.5 Q41 73.5 38.5 74 Q36 73.5 36 71.5 Z" fill="#051f4a" stroke="#0b1f55" stroke-width=".3"/>
+        <circle cx="38.5" cy="71" r="1.2" fill="#fcd116"/>
+        <g stroke="#fcd116" stroke-width=".4" stroke-linecap="round">
+          <line x1="38.5" y1="68.8" x2="38.5" y2="69.5"/>
+          <line x1="38.5" y1="72.5" x2="38.5" y2="73.2"/>
+          <line x1="36.3" y1="71" x2="37" y2="71"/>
+          <line x1="40" y1="71" x2="40.7" y2="71"/>
+        </g>
       </svg>
     </div>
     <div class="hero-content">
