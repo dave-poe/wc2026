@@ -83,6 +83,12 @@
        color:var(--muted);background:var(--panel);border:1px solid var(--line);padding:11px 18px;border-radius:999px;cursor:pointer;transition:.18s}
   .tab:hover{color:var(--ink);border-color:var(--dim)}
   .tab.active{background:var(--accent-lime,var(--amber));color:var(--on-amber);border-color:var(--accent-lime,var(--amber))}
+  .refreshbtn{margin-left:auto;display:flex;align-items:center;justify-content:center;width:40px;
+       color:var(--muted);background:var(--panel);border:1px solid var(--line);border-radius:999px;cursor:pointer;transition:.18s}
+  .refreshbtn:hover{color:var(--ink);border-color:var(--dim)}
+  .refreshbtn svg{width:16px;height:16px}
+  .refreshbtn.spinning svg{animation:spin .6s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
 
   section{display:none;animation:fade .4s ease}
   section.show{display:block}
@@ -174,7 +180,9 @@
 
   @media (max-width:560px){
     nav{gap:4px;flex-wrap:nowrap}
-    .tab{font-size:11px;letter-spacing:.02em;padding:9px 11px}
+    .tab{font-size:11px;letter-spacing:.02em;padding:9px 11px;flex:1;min-width:0}
+    .refreshbtn{flex:0 0 34px;width:34px}
+    .refreshbtn svg{width:14px;height:14px}
     .fx{grid-template-columns:1fr;gap:4px;padding:16px 16px 18px;text-align:center}
     .fx .t,.fx .t.h{text-align:center}
     .fx .tn{font-size:15px;justify-content:center}
@@ -552,6 +560,11 @@
     };
     nav.appendChild(b);
   });
+  const rb=document.createElement("button");
+  rb.className="refreshbtn"; rb.setAttribute("aria-label","Refresh"); rb.title="Refresh";
+  rb.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v6h-6"/></svg>';
+  rb.onclick=()=>{ rb.classList.add("spinning"); location.reload(); };
+  nav.appendChild(rb);
 
   // flags
   // (operator-only tie warnings are logged at build time, not shown to viewers)

@@ -170,6 +170,16 @@
       "label": "First Hat-trick of Tournament",
       "team": "",
       "note": ""
+    },
+    "biggestFlop": {
+      "label": "Biggest Flop",
+      "team": "",
+      "note": ""
+    },
+    "biggestSurprise": {
+      "label": "Biggest Surprise",
+      "team": "",
+      "note": ""
     }
   },
   "_fixtures_comment": "Enter scores as integers once a game is played. Leave homeScore/awayScore as null for unplayed games. Standings, qualification and the 8-best-third-placed cut are all computed automatically.",
