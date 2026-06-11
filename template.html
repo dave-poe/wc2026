@@ -504,8 +504,7 @@
   }
   let savedTheme=null;
   try{ savedTheme=localStorage.getItem("wc-theme"); }catch(e){}
-  const prefersLight = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches;
-  const initialTheme = savedTheme==="light" || savedTheme==="dark" ? savedTheme : (prefersLight ? "light" : "dark");
+  const initialTheme = savedTheme==="light" || savedTheme==="dark" ? savedTheme : "dark";
   applyTheme(initialTheme);
   tBtn.onclick=()=>{
     const next = root.getAttribute("data-theme")==="dark" ? "light" : "dark";
