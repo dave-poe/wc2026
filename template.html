@@ -114,6 +114,7 @@
   .lbrow.exited .alivelbl{color:var(--dim)}
   .pwon{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
   .medal{font-family:'Space Mono',monospace;font-size:11px;padding:3px 9px;border-radius:6px;background:var(--medal-bg);border:1px solid var(--amber);color:var(--amber)}
+  .medal .medal-trophy{font-size:10px;margin-right:1px}
 
   /* prizes */
   .prizes{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
@@ -578,7 +579,7 @@
       const cls = t===champ?"chip champ":(p.out.includes(t)?"chip out":"chip");
       return '<span class="'+cls+'">'+flag(t)+' '+esc(t)+'</span>';
     }).join("");
-    const medals=p.wonPrizes.map(m=>'<span class="medal">'+esc(m)+'</span>').join("");
+    const medals=p.wonPrizes.map(m=>'<span class="medal"><span class="medal-trophy">🏆</span> '+esc(m)+'</span>').join("");
     const exited=p.alive.length===0;
     const row=document.createElement("div");
     row.className="lbrow"+(exited?" exited":"");
