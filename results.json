@@ -268,8 +268,8 @@
       "date": "2026-06-11",
       "home": "Mexico",
       "away": "South Africa",
-      "homeScore": null,
-      "awayScore": null,
+      "homeScore": 2,
+      "awayScore": 0,
       "timeBST": "20:00",
       "venue": "Mexico City",
       "afterMidnight": false
