@@ -118,6 +118,7 @@
   .pownerpill{font-family:'Space Mono',monospace;font-size:12px;font-weight:700;color:var(--own-ink);background:var(--own-bg);padding:2px 8px;border-radius:5px;letter-spacing:.02em}
   .prize.pending .pteam{color:var(--dim);font-size:16px;font-family:'Space Mono',monospace}
   .prize .pnote{font-family:'Space Mono',monospace;font-size:11px;color:var(--dim);margin-top:8px}
+  .prize .ptrophy{font-size:14px;margin-left:4px;vertical-align:-1px}
 
   /* groups */
   .ggrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:16px}
@@ -598,7 +599,7 @@
     const pending = !p.team;
     const c=document.createElement("div");
     c.className="prize"+(pending?" pending":"");
-    c.innerHTML='<div class="plbl">'+esc(p.label)+'</div>'+
+    c.innerHTML='<div class="plbl">'+esc(p.label)+(pending?'':' <span class="ptrophy">🏆</span>')+'</div>'+
       '<div class="pteam">'+(p.team?flag(p.team)+' ':'')+esc(p.team||"To be decided")+'</div>'+
       ((p.owners&&p.owners.length)?'<div class="powner">'+p.owners.map(o=>'<span class="pownerpill">'+esc(o)+'</span>').join("")+'</div>':(p.team?'<div class="powner" style="color:var(--dim)">unowned</div>':''))+
       (p.note?'<div class="pnote">'+esc(p.note)+'</div>':'');
