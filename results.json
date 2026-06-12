@@ -279,8 +279,8 @@
       "date": "2026-06-12",
       "home": "South Korea",
       "away": "Czechia",
-      "homeScore": null,
-      "awayScore": null,
+      "homeScore": 2,
+      "awayScore": 1,
       "timeBST": "03:00",
       "venue": "Guadalajara",
       "afterMidnight": true
