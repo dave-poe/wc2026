@@ -345,8 +345,8 @@
       "date": "2026-06-13",
       "home": "Qatar",
       "away": "Switzerland",
-      "homeScore": null,
-      "awayScore": null,
+      "homeScore": 1,
+      "awayScore": 1,
       "timeBST": "20:00",
       "venue": "San Francisco",
       "afterMidnight": false
