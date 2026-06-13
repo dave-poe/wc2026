@@ -466,8 +466,8 @@
       "date": "2026-06-13",
       "home": "United States",
       "away": "Paraguay",
-      "homeScore": null,
-      "awayScore": null,
+      "homeScore": 4,
+      "awayScore": 1,
       "timeBST": "02:00",
       "venue": "Los Angeles",
       "afterMidnight": true
