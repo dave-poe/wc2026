@@ -664,8 +664,8 @@
       "date": "2026-06-15",
       "home": "Belgium",
       "away": "Egypt",
-      "homeScore": null,
-      "awayScore": null,
+      "homeScore": 1,
+      "awayScore": 1,
       "timeBST": "20:00",
       "venue": "Seattle",
       "afterMidnight": false
