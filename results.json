@@ -675,8 +675,8 @@
       "date": "2026-06-16",
       "home": "Iran",
       "away": "New Zealand",
-      "homeScore": null,
-      "awayScore": null,
+      "homeScore": 2,
+      "awayScore": 2,
       "timeBST": "02:00",
       "venue": "Los Angeles",
       "afterMidnight": true
