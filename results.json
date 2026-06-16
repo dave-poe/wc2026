@@ -741,8 +741,8 @@
       "date": "2026-06-15",
       "home": "Saudi Arabia",
       "away": "Uruguay",
-      "homeScore": null,
-      "awayScore": null,
+      "homeScore": 1,
+      "awayScore": 1,
       "timeBST": "23:00",
       "venue": "Miami",
       "afterMidnight": false
