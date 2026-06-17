@@ -168,8 +168,8 @@
     },
     "firstHatTrick": {
       "label": "First Hat-trick of Tournament",
-      "team": "",
-      "note": ""
+      "team": "Argentina",
+      "note": "Messi 🐐 v Algeria"
     },
     "biggestFlop": {
       "label": "Biggest Flop",
@@ -796,8 +796,8 @@
       "date": "2026-06-16",
       "home": "France",
       "away": "Senegal",
-      "homeScore": null,
-      "awayScore": null,
+      "homeScore": 3,
+      "awayScore": 1,
       "timeBST": "20:00",
       "venue": "New York/New Jersey",
       "afterMidnight": false
@@ -807,8 +807,8 @@
       "date": "2026-06-16",
       "home": "Iraq",
       "away": "Norway",
-      "homeScore": null,
-      "awayScore": null,
+      "homeScore": 1,
+      "awayScore": 4,
       "timeBST": "23:00",
       "venue": "Boston",
       "afterMidnight": false
@@ -862,8 +862,8 @@
       "date": "2026-06-17",
       "home": "Argentina",
       "away": "Algeria",
-      "homeScore": null,
-      "awayScore": null,
+      "homeScore": 3,
+      "awayScore": 0,
       "timeBST": "02:00",
       "venue": "Kansas City",
       "afterMidnight": true
@@ -873,8 +873,8 @@
       "date": "2026-06-17",
       "home": "Austria",
       "away": "Jordan",
-      "homeScore": null,
-      "awayScore": null,
+      "homeScore": 3,
+      "awayScore": 1,
       "timeBST": "05:00",
       "venue": "San Francisco",
       "afterMidnight": true
