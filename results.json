@@ -488,8 +488,8 @@
       "date": "2026-06-19",
       "home": "United States",
       "away": "Australia",
-      "homeScore": null,
-      "awayScore": null,
+      "homeScore": 2,
+      "awayScore": 0,
       "timeBST": "20:00",
       "venue": "Seattle",
       "afterMidnight": false
