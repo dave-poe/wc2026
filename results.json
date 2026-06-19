@@ -290,8 +290,8 @@
       "date": "2026-06-19",
       "home": "Mexico",
       "away": "South Korea",
-      "homeScore": 1,
-      "awayScore": 0,
+      "homeScore": null,
+      "awayScore": null,
       "timeBST": "02:00",
       "venue": "Guadalajara",
       "afterMidnight": true
