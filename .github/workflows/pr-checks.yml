@@ -1,0 +1,20 @@
+name: Sweepstake PR checks
+
+on:
+  pull_request:
+    branches: [ main ]
+    types: [opened, synchronize, reopened, ready_for_review]
+
+jobs:
+  validate:
+    name: Sweepstake validation
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "26"
+      - name: Run build
+        run: node build.mjs
