@@ -105,6 +105,13 @@ Setting a `winner` marks the loser eliminated on the Pool board.
 node build.mjs && open index.html
 ```
 
+## Automated score updates
+
+A scheduled GitHub Action also pulls finished scores from football-data.org and updates `results.json` automatically.
+- It only creates a PR when `results.json` actually changes.
+- It validates `results.json` as JSON before the PR is opened.
+- It runs on the hours after most games finish: `22:00`, `00:00`, `02:00`, and `05:00` UTC.
+
 ## Notes / limitations
 
 - Group eliminations only finalise on the Pool board once **all 12 groups**

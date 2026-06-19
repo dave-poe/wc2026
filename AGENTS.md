@@ -34,6 +34,7 @@ npm run test:prod           # Playwright against the live URL
 ## CI
 
 - [.github/workflows/update.yml](.github/workflows/update.yml) — builds and deploys to Pages on push to `main` (paths-filtered to relevant files).
+- [.github/workflows/update-results.yml](.github/workflows/update-results.yml) — scheduled score updates from football-data.org; validates `results.json` and creates a PR only when scores change.
 - [.github/workflows/test.yml](.github/workflows/test.yml) — Playwright on PRs only. **Not** on push to main (intentional).
 - [.github/workflows/test-prod.yml](.github/workflows/test-prod.yml) — runs after every successful deploy against the live URL.
 
