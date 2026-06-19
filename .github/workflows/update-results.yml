@@ -47,7 +47,7 @@ jobs:
             Review the diff and merge to publish.
           delete-branch: true
       - name: Enable pull request auto-merge
-        if: steps.create_pr.outputs.pull-request-operation == 'created'
+        if: steps.check_changes.outputs.changed == 'true'
         uses: peter-evans/enable-pull-request-automerge@v2
         with:
           pull-request-number: ${{ steps.create_pr.outputs.pull-request-number }}
