@@ -2,7 +2,7 @@ name: Auto-update results
 
 on:
   schedule:
-    - cron: "0 */3 * * *"
+    - cron: "0 22,0,2,5 * * *"
   workflow_dispatch: {}
 
 permissions:
@@ -16,12 +16,25 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "24"
       - name: Fetch and update results
         env:
           FOOTBALL_DATA_TOKEN: ${{ secrets.FOOTBALL_DATA_TOKEN }}
         run: node scripts/update-results.mjs
+      - name: Check for results.json changes
+        id: check_changes
+        run: |
+          if git diff --quiet -- results.json; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+          fi
+      - name: Validate results.json
+        if: steps.check_changes.outputs.changed == 'true'
+        run: |
+          node --input-type=module -e "import { readFile } from 'node:fs/promises'; JSON.parse(await readFile('results.json', 'utf8')); console.log('results.json is valid JSON');"
       - name: Create pull request
+        if: steps.check_changes.outputs.changed == 'true'
         uses: peter-evans/create-pull-request@v6
         with:
           commit-message: "Auto-update fixture scores"
