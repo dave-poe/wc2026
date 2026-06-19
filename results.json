@@ -52,7 +52,7 @@
       "Qatar"
     ],
     "Andrew": [
-      "Bosnia and Herzegovina",
+      "Bosnia-Herzegovina",
       "Iraq"
     ],
     "Gemma": [
@@ -103,7 +103,7 @@
       "France"
     ],
     "Dave": [
-      "Cape Verde",
+      "Cape Verde Islands",
       "Morocco"
     ],
     "Nuala": [
@@ -119,7 +119,7 @@
       "Morocco"
     ],
     "Cillian": [
-      "DR Congo",
+      "Congo DR",
       "Belgium"
     ],
     "Shane": [
@@ -128,7 +128,7 @@
     ],
     "Craig": [
       "Tunisia",
-      "Côte d'Ivoire"
+      "Ivory Coast"
     ],
     "Lorna": [
       "Jordan"
@@ -197,7 +197,7 @@
     ],
     "B": [
       "Canada",
-      "Bosnia and Herzegovina",
+      "Bosnia-Herzegovina",
       "Qatar",
       "Switzerland"
     ],
@@ -216,7 +216,7 @@
     "E": [
       "Germany",
       "Curaçao",
-      "Côte d'Ivoire",
+      "Ivory Coast",
       "Ecuador"
     ],
     "F": [
@@ -233,7 +233,7 @@
     ],
     "H": [
       "Spain",
-      "Cape Verde",
+      "Cape Verde Islands",
       "Saudi Arabia",
       "Uruguay"
     ],
@@ -251,7 +251,7 @@
     ],
     "K": [
       "Portugal",
-      "DR Congo",
+      "Congo DR",
       "Uzbekistan",
       "Colombia"
     ],
@@ -290,8 +290,8 @@
       "date": "2026-06-19",
       "home": "Mexico",
       "away": "South Korea",
-      "homeScore": null,
-      "awayScore": null,
+      "homeScore": 1,
+      "awayScore": 0,
       "timeBST": "02:00",
       "venue": "Guadalajara",
       "afterMidnight": true
@@ -333,7 +333,7 @@
       "group": "B",
       "date": "2026-06-12",
       "home": "Canada",
-      "away": "Bosnia and Herzegovina",
+      "away": "Bosnia-Herzegovina",
       "homeScore": 1,
       "awayScore": 1,
       "timeBST": "20:00",
@@ -356,8 +356,8 @@
       "date": "2026-06-18",
       "home": "Canada",
       "away": "Qatar",
-      "homeScore": null,
-      "awayScore": null,
+      "homeScore": 6,
+      "awayScore": 0,
       "timeBST": "23:00",
       "venue": "Vancouver",
       "afterMidnight": false
@@ -366,9 +366,9 @@
       "group": "B",
       "date": "2026-06-18",
       "home": "Switzerland",
-      "away": "Bosnia and Herzegovina",
-      "homeScore": null,
-      "awayScore": null,
+      "away": "Bosnia-Herzegovina",
+      "homeScore": 4,
+      "awayScore": 1,
       "timeBST": "20:00",
       "venue": "Los Angeles",
       "afterMidnight": false
@@ -376,7 +376,7 @@
     {
       "group": "B",
       "date": "2026-06-24",
-      "home": "Bosnia and Herzegovina",
+      "home": "Bosnia-Herzegovina",
       "away": "Qatar",
       "homeScore": null,
       "awayScore": null,
@@ -541,7 +541,7 @@
     {
       "group": "E",
       "date": "2026-06-15",
-      "home": "Côte d'Ivoire",
+      "home": "Ivory Coast",
       "away": "Ecuador",
       "homeScore": 1,
       "awayScore": 0,
@@ -553,7 +553,7 @@
       "group": "E",
       "date": "2026-06-20",
       "home": "Germany",
-      "away": "Côte d'Ivoire",
+      "away": "Ivory Coast",
       "homeScore": null,
       "awayScore": null,
       "timeBST": "21:00",
@@ -575,7 +575,7 @@
       "group": "E",
       "date": "2026-06-25",
       "home": "Curaçao",
-      "away": "Côte d'Ivoire",
+      "away": "Ivory Coast",
       "homeScore": null,
       "awayScore": null,
       "timeBST": "21:00",
@@ -729,7 +729,7 @@
       "group": "H",
       "date": "2026-06-15",
       "home": "Spain",
-      "away": "Cape Verde",
+      "away": "Cape Verde Islands",
       "homeScore": 0,
       "awayScore": 0,
       "timeBST": "17:00",
@@ -762,7 +762,7 @@
       "group": "H",
       "date": "2026-06-21",
       "home": "Uruguay",
-      "away": "Cape Verde",
+      "away": "Cape Verde Islands",
       "homeScore": null,
       "awayScore": null,
       "timeBST": "23:00",
@@ -772,7 +772,7 @@
     {
       "group": "H",
       "date": "2026-06-27",
-      "home": "Cape Verde",
+      "home": "Cape Verde Islands",
       "away": "Saudi Arabia",
       "homeScore": null,
       "awayScore": null,
@@ -927,7 +927,7 @@
       "group": "K",
       "date": "2026-06-17",
       "home": "Portugal",
-      "away": "DR Congo",
+      "away": "Congo DR",
       "homeScore": 1,
       "awayScore": 1,
       "timeBST": "18:00",
@@ -960,7 +960,7 @@
       "group": "K",
       "date": "2026-06-24",
       "home": "Colombia",
-      "away": "DR Congo",
+      "away": "Congo DR",
       "homeScore": null,
       "awayScore": null,
       "timeBST": "03:00",
@@ -970,7 +970,7 @@
     {
       "group": "K",
       "date": "2026-06-28",
-      "home": "DR Congo",
+      "home": "Congo DR",
       "away": "Uzbekistan",
       "homeScore": null,
       "awayScore": null,
