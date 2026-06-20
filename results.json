@@ -422,8 +422,8 @@
       "date": "2026-06-20",
       "home": "Brazil",
       "away": "Haiti",
-      "homeScore": null,
-      "awayScore": null,
+      "homeScore": 3,
+      "awayScore": 0,
       "timeBST": "01:30",
       "venue": "Philadelphia",
       "afterMidnight": true
@@ -433,8 +433,8 @@
       "date": "2026-06-19",
       "home": "Scotland",
       "away": "Morocco",
-      "homeScore": null,
-      "awayScore": null,
+      "homeScore": 0,
+      "awayScore": 1,
       "timeBST": "23:00",
       "venue": "Boston",
       "afterMidnight": false
@@ -499,8 +499,8 @@
       "date": "2026-06-20",
       "home": "Turkey",
       "away": "Paraguay",
-      "homeScore": null,
-      "awayScore": null,
+      "homeScore": 0,
+      "awayScore": 1,
       "timeBST": "04:00",
       "venue": "San Francisco",
       "afterMidnight": true
