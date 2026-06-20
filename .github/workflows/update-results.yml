@@ -2,7 +2,7 @@ name: Auto-update results
 
 on:
   schedule:
-    - cron: "15 22,0,2,5 * * *"
+    - cron: "15 21,23,1,6 * * *"
   workflow_dispatch: {}
 
 permissions:
