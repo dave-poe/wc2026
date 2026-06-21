@@ -565,8 +565,8 @@
       "date": "2026-06-21",
       "home": "Ecuador",
       "away": "Curaçao",
-      "homeScore": null,
-      "awayScore": null,
+      "homeScore": 0,
+      "awayScore": 0,
       "timeBST": "01:00",
       "venue": "Kansas City",
       "afterMidnight": true
@@ -631,8 +631,8 @@
       "date": "2026-06-21",
       "home": "Tunisia",
       "away": "Japan",
-      "homeScore": null,
-      "awayScore": null,
+      "homeScore": 0,
+      "awayScore": 4,
       "timeBST": "05:00",
       "venue": "Monterrey",
       "afterMidnight": true
