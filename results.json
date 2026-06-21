@@ -686,8 +686,8 @@
       "date": "2026-06-21",
       "home": "Belgium",
       "away": "Iran",
-      "homeScore": null,
-      "awayScore": null,
+      "homeScore": 0,
+      "awayScore": 0,
       "timeBST": "20:00",
       "venue": "Los Angeles",
       "afterMidnight": false
@@ -752,8 +752,8 @@
       "date": "2026-06-21",
       "home": "Spain",
       "away": "Saudi Arabia",
-      "homeScore": null,
-      "awayScore": null,
+      "homeScore": 4,
+      "awayScore": 0,
       "timeBST": "17:00",
       "venue": "Atlanta",
       "afterMidnight": false
