@@ -50,7 +50,7 @@ describe("computeStandings", () => {
     expect(standings.A[3]).toMatchObject({ team: "T3", P: 3, Pts: 1, GD: -4 });
   });
 
-  it("flags unresolved Pts/GD/GF ties", () => {
+  it("flags unresolved Points/GD/GF ties", () => {
     const groups = { A: ["T1", "T2", "T3", "T4"] };
     // Make T1 and T2 finish identical: each wins 1, draws 1, loses 1; GF=GA.
     const fixtures = group("A", ["T1", "T2", "T3", "T4"], [
