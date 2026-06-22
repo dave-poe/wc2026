@@ -763,8 +763,8 @@
       "date": "2026-06-21",
       "home": "Uruguay",
       "away": "Cape Verde Islands",
-      "homeScore": null,
-      "awayScore": null,
+      "homeScore": 2,
+      "awayScore": 2,
       "timeBST": "23:00",
       "venue": "Miami",
       "afterMidnight": false
