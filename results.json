@@ -697,8 +697,8 @@
       "date": "2026-06-22",
       "home": "New Zealand",
       "away": "Egypt",
-      "homeScore": null,
-      "awayScore": null,
+      "homeScore": 1,
+      "awayScore": 3,
       "timeBST": "02:00",
       "venue": "Vancouver",
       "afterMidnight": true
