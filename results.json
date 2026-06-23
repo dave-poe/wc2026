@@ -829,8 +829,8 @@
       "date": "2026-06-23",
       "home": "Norway",
       "away": "Senegal",
-      "homeScore": null,
-      "awayScore": null,
+      "homeScore": 3,
+      "awayScore": 2,
       "timeBST": "01:00",
       "venue": "New York/New Jersey",
       "afterMidnight": true
@@ -895,8 +895,8 @@
       "date": "2026-06-23",
       "home": "Jordan",
       "away": "Algeria",
-      "homeScore": null,
-      "awayScore": null,
+      "homeScore": 1,
+      "awayScore": 2,
       "timeBST": "04:00",
       "venue": "San Francisco",
       "afterMidnight": true
