@@ -818,8 +818,8 @@
       "date": "2026-06-22",
       "home": "France",
       "away": "Iraq",
-      "homeScore": null,
-      "awayScore": null,
+      "homeScore": 3,
+      "awayScore": 0,
       "timeBST": "22:00",
       "venue": "Philadelphia",
       "afterMidnight": false
@@ -884,8 +884,8 @@
       "date": "2026-06-22",
       "home": "Argentina",
       "away": "Austria",
-      "homeScore": null,
-      "awayScore": null,
+      "homeScore": 2,
+      "awayScore": 0,
       "timeBST": "18:00",
       "venue": "Dallas",
       "afterMidnight": false
