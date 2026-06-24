@@ -961,8 +961,8 @@
       "date": "2026-06-24",
       "home": "Colombia",
       "away": "Congo DR",
-      "homeScore": null,
-      "awayScore": null,
+      "homeScore": 1,
+      "awayScore": 0,
       "timeBST": "03:00",
       "venue": "Guadalajara",
       "afterMidnight": true
@@ -1027,8 +1027,8 @@
       "date": "2026-06-24",
       "home": "Panama",
       "away": "Croatia",
-      "homeScore": null,
-      "awayScore": null,
+      "homeScore": 0,
+      "awayScore": 1,
       "timeBST": "00:00",
       "venue": "Toronto",
       "afterMidnight": true
