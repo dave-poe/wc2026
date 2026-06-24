@@ -950,8 +950,8 @@
       "date": "2026-06-23",
       "home": "Portugal",
       "away": "Uzbekistan",
-      "homeScore": null,
-      "awayScore": null,
+      "homeScore": 5,
+      "awayScore": 0,
       "timeBST": "18:00",
       "venue": "Houston",
       "afterMidnight": false
@@ -1016,8 +1016,8 @@
       "date": "2026-06-23",
       "home": "England",
       "away": "Ghana",
-      "homeScore": null,
-      "awayScore": null,
+      "homeScore": 0,
+      "awayScore": 0,
       "timeBST": "21:00",
       "venue": "Boston",
       "afterMidnight": false
