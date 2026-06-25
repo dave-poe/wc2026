@@ -378,8 +378,8 @@
       "date": "2026-06-24",
       "home": "Bosnia-Herzegovina",
       "away": "Qatar",
-      "homeScore": null,
-      "awayScore": null,
+      "homeScore": 3,
+      "awayScore": 1,
       "timeBST": "20:00",
       "venue": "Seattle",
       "afterMidnight": false
@@ -389,8 +389,8 @@
       "date": "2026-06-24",
       "home": "Switzerland",
       "away": "Canada",
-      "homeScore": null,
-      "awayScore": null,
+      "homeScore": 2,
+      "awayScore": 1,
       "timeBST": "20:00",
       "venue": "Vancouver",
       "afterMidnight": false
@@ -444,8 +444,8 @@
       "date": "2026-06-24",
       "home": "Morocco",
       "away": "Haiti",
-      "homeScore": null,
-      "awayScore": null,
+      "homeScore": 4,
+      "awayScore": 2,
       "timeBST": "23:00",
       "venue": "Atlanta",
       "afterMidnight": false
@@ -455,8 +455,8 @@
       "date": "2026-06-24",
       "home": "Scotland",
       "away": "Brazil",
-      "homeScore": null,
-      "awayScore": null,
+      "homeScore": 0,
+      "awayScore": 3,
       "timeBST": "23:00",
       "venue": "Miami",
       "afterMidnight": false
