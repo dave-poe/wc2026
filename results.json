@@ -312,8 +312,8 @@
       "date": "2026-06-25",
       "home": "South Africa",
       "away": "South Korea",
-      "homeScore": null,
-      "awayScore": null,
+      "homeScore": 1,
+      "awayScore": 0,
       "timeBST": "02:00",
       "venue": "Monterrey",
       "afterMidnight": true
@@ -323,8 +323,8 @@
       "date": "2026-06-25",
       "home": "Czechia",
       "away": "Mexico",
-      "homeScore": null,
-      "awayScore": null,
+      "homeScore": 0,
+      "awayScore": 3,
       "timeBST": "02:00",
       "venue": "Mexico City",
       "afterMidnight": true
