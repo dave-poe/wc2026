@@ -840,8 +840,8 @@
       "date": "2026-06-26",
       "home": "Senegal",
       "away": "Iraq",
-      "homeScore": null,
-      "awayScore": null,
+      "homeScore": 5,
+      "awayScore": 0,
       "timeBST": "20:00",
       "venue": "Toronto",
       "afterMidnight": false
@@ -851,8 +851,8 @@
       "date": "2026-06-26",
       "home": "Norway",
       "away": "France",
-      "homeScore": null,
-      "awayScore": null,
+      "homeScore": 1,
+      "awayScore": 4,
       "timeBST": "20:00",
       "venue": "Boston",
       "afterMidnight": false
