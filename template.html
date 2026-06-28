@@ -95,6 +95,9 @@
   @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 
   .sectitle{font-family:'Archivo Black',sans-serif;font-size:13px;letter-spacing:.25em;text-transform:uppercase;color:var(--dim);margin:0 0 18px}
+  .sec-count{display:inline-block;margin-left:8px;padding:2px 8px;border-radius:999px;background:var(--accent-lime,var(--amber));color:var(--on-amber);font-size:12px;letter-spacing:.1em;vertical-align:middle}
+  .fxpens{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);font-weight:700;background:var(--panel2);border-radius:999px;padding:2px 8px;margin-top:4px;text-align:center;font-family:'Space Mono',monospace}
+  .scwrap{display:flex;flex-direction:column;align-items:center;gap:0;min-width:78px}
 
   /* leaderboard */
   .lb{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:10px}
@@ -461,7 +464,7 @@
 
   <section id="tab-standings" class="show">
     <div class="fxbar">
-      <div class="sectitle" style="margin:0">Teams Still Active</div>
+      <div class="sectitle" style="margin:0">Teams Still Active <span id="activeCount" class="sec-count"></span></div>
       <button id="poolToggle" class="fxfilter" aria-pressed="false">Show exited</button>
     </div>
     <div class="lb" id="leaderboard"></div>
@@ -578,6 +581,9 @@
 
   // leaderboard (pool) with alive/exited filter
   const lb=$("leaderboard");
+  const activeTeams=new Set();
+  D.leaderboard.forEach(p=>p.alive.forEach(t=>activeTeams.add(t)));
+  $("activeCount").textContent=activeTeams.size;
   let showExited=false;
   function poolCard(p){
     const champ = D.prizes.winner && (D.prizes.winner.owners||[]).includes(p.person) ? D.prizes.winner.team : null;
@@ -654,7 +660,10 @@
   let showPlayed=false;
   function fixtureCard(f){
     const played=f.homeScore!=null&&f.awayScore!=null;
+    const hasPens=f.penaltiesHome!=null&&f.penaltiesAway!=null;
     const sc=played?(f.homeScore+" – "+f.awayScore):"v";
+    const pens=hasPens?'<div class="fxpens">pens '+f.penaltiesHome+"–"+f.penaltiesAway+'</div>':"";
+    const scoreBlock='<div class="scwrap"><div class="sc'+(played?"":" tbd")+'">'+sc+'</div>'+pens+'</div>';
     const time=f.timeBST?fmtTime(f.timeBST):"";
     const meta=[time,f.venue].filter(Boolean).join(" · ");
     const oh=owners(f.home), oa=owners(f.away);
@@ -663,21 +672,34 @@
       const pills=arr.map(p=>'<span class="fxown">'+esc(p)+'</span>').join("");
       return '<span class="fxownrow'+(arr.length===1?' single':'')+'">'+pills+'</span>';
     };
+    const stageLabel=f.stage||("Group "+f.group);
     const el=document.createElement("div");
     el.className="fx"+(played?" done":"");
     el.innerHTML=
-      '<div class="fxgroup"><span class="fxg-label">Group '+f.group+(played?' · Full time':'')+'</span>'+
+      '<div class="fxgroup"><span class="fxg-label">'+esc(stageLabel)+(played?' · Full time':'')+'</span>'+
         (meta?'<span class="fxg-meta">'+esc(meta)+'</span>':'')+'</div>'+
       '<div class="t h"><span class="tn">'+flag(f.home)+' '+esc(f.home)+
         ownerHtml(oh)+'</span></div>'+
-      '<div class="sc'+(played?"":" tbd")+'">'+sc+'</div>'+
+      scoreBlock+
       '<div class="t"><span class="tn">'+flag(f.away)+' '+esc(f.away)+
         ownerHtml(oa)+'</span></div>';
     return el;
   }
+  const KO_STAGE_LABELS={roundOf32:"Round of 32",roundOf16:"Round of 16",quarterFinals:"Quarter-final",semiFinals:"Semi-final"};
+  const koFixtures=[];
+  Object.entries(KO_STAGE_LABELS).forEach(([k,lbl])=>{
+    (D.knockout&&D.knockout[k]||[]).forEach(m=>{
+      if(!m.home&&!m.away) return;
+      koFixtures.push({...m,stage:lbl});
+    });
+  });
+  if(D.knockout&&D.knockout.final&&(D.knockout.final.home||D.knockout.final.away)){
+    koFixtures.push({...D.knockout.final,stage:"Final"});
+  }
+  const allFixtures=[...D.groupFixtures,...koFixtures];
   function renderFixtures(){
     fx.innerHTML="";
-    const list=D.groupFixtures.filter(f=>{
+    const list=allFixtures.filter(f=>{
       const played=f.homeScore!=null&&f.awayScore!=null;
       return showPlayed ? true : !played;
     });
@@ -717,9 +739,11 @@
     const list=document.createElement("div");list.className="fxlist";
     arr.forEach(m=>{
       const played=m.homeScore!=null&&m.awayScore!=null;
+      const hasPens=m.penaltiesHome!=null&&m.penaltiesAway!=null;
       const sc=played?(m.homeScore+" – "+m.awayScore):"v";
+      const pens=hasPens?'<div class="fxpens">pens '+m.penaltiesHome+"–"+m.penaltiesAway+'</div>':"";
       const el=document.createElement("div");el.className="fx";
-      el.innerHTML='<div class="t h"><span class="tn">'+esc(m.home||"TBD")+' '+(m.home?flag(m.home):"")+'</span></div><div class="sc'+(played?"":" tbd")+'">'+sc+'</div><div class="t"><span class="tn">'+(m.away?flag(m.away):"")+' '+esc(m.away||"TBD")+'</span></div>';
+      el.innerHTML='<div class="t h"><span class="tn">'+esc(m.home||"TBD")+' '+(m.home?flag(m.home):"")+'</span></div><div class="scwrap"><div class="sc'+(played?"":" tbd")+'">'+sc+'</div>'+pens+'</div><div class="t"><span class="tn">'+(m.away?flag(m.away):"")+' '+esc(m.away||"TBD")+'</span></div>';
       list.appendChild(el);
     });
     koWrap.appendChild(list);
@@ -728,9 +752,11 @@
     any=true;
     const dr=document.createElement("div");dr.className="daterow";dr.textContent="Final";koWrap.appendChild(dr);
     const played=ko.final.homeScore!=null&&ko.final.awayScore!=null;
+    const hasPens=ko.final.penaltiesHome!=null&&ko.final.penaltiesAway!=null;
     const sc=played?(ko.final.homeScore+" – "+ko.final.awayScore):"v";
+    const pens=hasPens?'<div class="fxpens">pens '+ko.final.penaltiesHome+"–"+ko.final.penaltiesAway+'</div>':"";
     const el=document.createElement("div");el.className="fx";
-    el.innerHTML='<div class="t h"><span class="tn">'+esc(ko.final.home||"TBD")+' '+(ko.final.home?flag(ko.final.home):"")+'</span></div><div class="sc'+(played?"":" tbd")+'">'+sc+'</div><div class="t"><span class="tn">'+(ko.final.away?flag(ko.final.away):"")+' '+esc(ko.final.away||"TBD")+'</span></div>';
+    el.innerHTML='<div class="t h"><span class="tn">'+esc(ko.final.home||"TBD")+' '+(ko.final.home?flag(ko.final.home):"")+'</span></div><div class="scwrap"><div class="sc'+(played?"":" tbd")+'">'+sc+'</div>'+pens+'</div><div class="t"><span class="tn">'+(ko.final.away?flag(ko.final.away):"")+' '+esc(ko.final.away||"TBD")+'</span></div>';
     koWrap.appendChild(el);
   }
   if(!any){koWrap.innerHTML='<div class="konote">Knockout stage begins 28 June. Bracket appears here once the group stage is complete and matches are entered.</div>';}
