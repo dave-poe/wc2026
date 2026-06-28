@@ -1038,8 +1038,8 @@
       "date": "2026-06-27",
       "home": "Croatia",
       "away": "Ghana",
-      "homeScore": null,
-      "awayScore": null,
+      "homeScore": 2,
+      "awayScore": 1,
       "timeBST": "22:00",
       "venue": "Philadelphia",
       "afterMidnight": false
@@ -1049,8 +1049,8 @@
       "date": "2026-06-27",
       "home": "Panama",
       "away": "England",
-      "homeScore": null,
-      "awayScore": null,
+      "homeScore": 0,
+      "awayScore": 2,
       "timeBST": "22:00",
       "venue": "New York/New Jersey",
       "afterMidnight": false
