@@ -23,36 +23,88 @@ const { matches } = await res.json();
 const data = JSON.parse(await readFile(RESULTS_PATH, "utf8"));
 
 const fixtureKey = (home, away) => `${home}::${away}`;
-const fixtureIndex = new Map(
+const groupIndex = new Map(
   data.groupFixtures.map((f) => [fixtureKey(f.home, f.away), f]),
 );
+
+const KO_STAGE_TO_BUCKET = {
+  LAST_32: "roundOf32",
+  LAST_16: "roundOf16",
+  QUARTER_FINALS: "quarterFinals",
+  SEMI_FINALS: "semiFinals",
+};
+data.knockout = data.knockout || {};
+const koIndex = new Map();
+for (const bucket of Object.values(KO_STAGE_TO_BUCKET)) {
+  for (const f of data.knockout[bucket] || []) {
+    koIndex.set(fixtureKey(f.home, f.away), f);
+  }
+}
 
 const updates = [];
 const unmatched = [];
 
 for (const m of matches) {
   if (m.status !== "FINISHED") continue;
-  if (m.stage !== "GROUP_STAGE") continue;
   const home = m.homeTeam?.name;
   const away = m.awayTeam?.name;
   if (!home || !away) continue;
 
-  const fixture = fixtureIndex.get(fixtureKey(home, away));
-  if (!fixture) {
-    unmatched.push(`${home} vs ${away}`);
-    continue;
-  }
+  const isGroup = m.stage === "GROUP_STAGE";
+  const isKnockout = m.stage === "FINAL" || KO_STAGE_TO_BUCKET[m.stage];
+  if (!isGroup && !isKnockout) continue;
+
   const hs = m.score?.fullTime?.home;
   const as = m.score?.fullTime?.away;
   if (hs == null || as == null) continue;
 
-  if (fixture.homeScore !== hs || fixture.awayScore !== as) {
+  if (isGroup) {
+    const fixture = groupIndex.get(fixtureKey(home, away));
+    if (!fixture) { unmatched.push(`${m.stage}: ${home} vs ${away}`); continue; }
+    if (fixture.homeScore !== hs || fixture.awayScore !== as) {
+      updates.push({
+        match: `${home} ${hs}-${as} ${away}`,
+        from: `${fixture.homeScore ?? "null"}-${fixture.awayScore ?? "null"}`,
+      });
+      fixture.homeScore = hs;
+      fixture.awayScore = as;
+    }
+    continue;
+  }
+
+  // knockout
+  const fixture = m.stage === "FINAL" ? data.knockout.final : koIndex.get(fixtureKey(home, away));
+  if (!fixture || (m.stage !== "FINAL" && !koIndex.has(fixtureKey(home, away)))) {
+    unmatched.push(`${m.stage}: ${home} vs ${away}`);
+    continue;
+  }
+  // winner: API gives HOME_WIN/AWAY_WIN (includes ET/penalties). DRAW shouldn't occur for finished KO.
+  let winner = "";
+  if (m.score?.winner === "HOME_WIN") winner = fixture.home;
+  else if (m.score?.winner === "AWAY_WIN") winner = fixture.away;
+
+  const ph = m.score?.penalties?.home ?? null;
+  const pa = m.score?.penalties?.away ?? null;
+  const hasPens = ph != null && pa != null;
+
+  const changed =
+    fixture.homeScore !== hs ||
+    fixture.awayScore !== as ||
+    (winner && fixture.winner !== winner) ||
+    (hasPens && (fixture.penaltiesHome !== ph || fixture.penaltiesAway !== pa));
+  if (changed) {
+    const pensSuffix = hasPens ? ` (pens ${ph}-${pa})` : "";
     updates.push({
-      match: `${home} ${hs}-${as} ${away}`,
+      match: `[${m.stage}] ${home} ${hs}-${as} ${away}${pensSuffix}${winner ? ` (winner: ${winner})` : ""}`,
       from: `${fixture.homeScore ?? "null"}-${fixture.awayScore ?? "null"}`,
     });
     fixture.homeScore = hs;
     fixture.awayScore = as;
+    if (winner) fixture.winner = winner;
+    if (hasPens) {
+      fixture.penaltiesHome = ph;
+      fixture.penaltiesAway = pa;
+    }
   }
 }
 
