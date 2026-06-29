@@ -78,14 +78,20 @@ for (const m of matches) {
     unmatched.push(`${m.stage}: ${home} vs ${away}`);
     continue;
   }
-  // winner: API gives HOME_WIN/AWAY_WIN (includes ET/penalties). DRAW shouldn't occur for finished KO.
+  // winner: prefer API's score.winner (covers ET/penalties); fall back to fullTime score if decisive.
   let winner = "";
   if (m.score?.winner === "HOME_WIN") winner = fixture.home;
   else if (m.score?.winner === "AWAY_WIN") winner = fixture.away;
+  else if (hs > as) winner = fixture.home;
+  else if (as > hs) winner = fixture.away;
 
   const ph = m.score?.penalties?.home ?? null;
   const pa = m.score?.penalties?.away ?? null;
   const hasPens = ph != null && pa != null;
+  if (!winner && hasPens) {
+    if (ph > pa) winner = fixture.home;
+    else if (pa > ph) winner = fixture.away;
+  }
 
   const changed =
     fixture.homeScore !== hs ||
