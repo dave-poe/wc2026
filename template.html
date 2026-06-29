@@ -707,8 +707,14 @@
       fx.innerHTML='<div class="konote">No upcoming group matches — every game has a result. Tap “Show played” to see scores.</div>';
       return;
     }
+    const ukDate=f=>{
+      if(!f.afterMidnight) return f.date;
+      const d=new Date(f.date+"T00:00:00Z");
+      d.setUTCDate(d.getUTCDate()+1);
+      return d.toISOString().slice(0,10);
+    };
     const byDate={};
-    list.forEach(f=>{(byDate[f.date]=byDate[f.date]||[]).push(f);});
+    list.forEach(f=>{const k=ukDate(f);(byDate[k]=byDate[k]||[]).push(f);});
     Object.keys(byDate).sort().forEach(date=>{
       const d=new Date(date+"T00:00:00");
       const dr=document.createElement("div");
