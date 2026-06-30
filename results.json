@@ -1076,23 +1076,25 @@
         "date": "2026-06-29",
         "home": "Brazil",
         "away": "Japan",
-        "homeScore": null,
-        "awayScore": null,
+        "homeScore": 2,
+        "awayScore": 1,
         "timeBST": "18:00",
         "venue": "Houston",
         "afterMidnight": false,
-        "winner": ""
+        "winner": "Brazil"
       },
       {
         "date": "2026-06-29",
         "home": "Germany",
         "away": "Paraguay",
-        "homeScore": null,
-        "awayScore": null,
+        "homeScore": 4,
+        "awayScore": 5,
         "timeBST": "21:30",
         "venue": "Boston",
         "afterMidnight": false,
-        "winner": ""
+        "winner": "Paraguay",
+        "penaltiesHome": 4,
+        "penaltiesAway": 4
       },
       {
         "date": "2026-06-30",
