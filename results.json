@@ -1093,19 +1093,21 @@
         "venue": "Boston",
         "afterMidnight": false,
         "winner": "Paraguay",
-        "penaltiesHome": 4,
+        "penaltiesHome": 3,
         "penaltiesAway": 4
       },
       {
         "date": "2026-06-30",
         "home": "Netherlands",
         "away": "Morocco",
-        "homeScore": null,
-        "awayScore": null,
+        "homeScore": 3,
+        "awayScore": 4,
         "timeBST": "02:00",
         "venue": "Monterrey",
         "afterMidnight": true,
-        "winner": ""
+        "winner": "Morocco",
+        "penaltiesHome": 2,
+        "penaltiesAway": 3
       },
       {
         "date": "2026-06-30",
