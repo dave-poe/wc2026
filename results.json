@@ -1135,12 +1135,12 @@
         "date": "2026-07-01",
         "home": "Mexico",
         "away": "Ecuador",
-        "homeScore": null,
-        "awayScore": null,
+        "homeScore": 2,
+        "awayScore": 0,
         "timeBST": "02:00",
         "venue": "Mexico City",
         "afterMidnight": true,
-        "winner": ""
+        "winner": "Mexico"
       },
       {
         "date": "2026-07-01",
