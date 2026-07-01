@@ -1113,23 +1113,23 @@
         "date": "2026-06-30",
         "home": "Ivory Coast",
         "away": "Norway",
-        "homeScore": null,
-        "awayScore": null,
+        "homeScore": 1,
+        "awayScore": 2,
         "timeBST": "18:00",
         "venue": "Dallas",
         "afterMidnight": false,
-        "winner": ""
+        "winner": "Norway"
       },
       {
         "date": "2026-06-30",
         "home": "France",
         "away": "Sweden",
-        "homeScore": null,
-        "awayScore": null,
+        "homeScore": 3,
+        "awayScore": 0,
         "timeBST": "22:00",
         "venue": "New York/New Jersey",
         "afterMidnight": false,
-        "winner": ""
+        "winner": "France"
       },
       {
         "date": "2026-07-01",
