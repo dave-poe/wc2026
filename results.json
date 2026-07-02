@@ -1168,12 +1168,12 @@
         "date": "2026-07-02",
         "home": "United States",
         "away": "Bosnia-Herzegovina",
-        "homeScore": null,
-        "awayScore": null,
+        "homeScore": 2,
+        "awayScore": 0,
         "timeBST": "01:00",
         "venue": "San Francisco Bay Area",
         "afterMidnight": true,
-        "winner": ""
+        "winner": "United States"
       },
       {
         "date": "2026-07-02",
