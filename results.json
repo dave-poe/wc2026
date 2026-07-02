@@ -1146,23 +1146,23 @@
         "date": "2026-07-01",
         "home": "England",
         "away": "Congo DR",
-        "homeScore": null,
-        "awayScore": null,
+        "homeScore": 2,
+        "awayScore": 1,
         "timeBST": "17:00",
         "venue": "Atlanta",
         "afterMidnight": false,
-        "winner": ""
+        "winner": "England"
       },
       {
         "date": "2026-07-01",
         "home": "Belgium",
         "away": "Senegal",
-        "homeScore": null,
-        "awayScore": null,
+        "homeScore": 3,
+        "awayScore": 2,
         "timeBST": "21:00",
         "venue": "Seattle",
         "afterMidnight": false,
-        "winner": ""
+        "winner": "Belgium"
       },
       {
         "date": "2026-07-02",
