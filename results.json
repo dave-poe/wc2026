@@ -1190,12 +1190,12 @@
         "date": "2026-07-03",
         "home": "Portugal",
         "away": "Croatia",
-        "homeScore": null,
-        "awayScore": null,
+        "homeScore": 2,
+        "awayScore": 1,
         "timeBST": "00:00",
         "venue": "Toronto",
         "afterMidnight": true,
-        "winner": ""
+        "winner": "Portugal"
       },
       {
         "date": "2026-07-03",
