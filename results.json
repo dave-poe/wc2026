@@ -1179,12 +1179,12 @@
         "date": "2026-07-02",
         "home": "Spain",
         "away": "Austria",
-        "homeScore": null,
-        "awayScore": null,
+        "homeScore": 3,
+        "awayScore": 0,
         "timeBST": "20:00",
         "venue": "Los Angeles",
         "afterMidnight": false,
-        "winner": ""
+        "winner": "Spain"
       },
       {
         "date": "2026-07-03",
