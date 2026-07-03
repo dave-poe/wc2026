@@ -1201,12 +1201,12 @@
         "date": "2026-07-03",
         "home": "Switzerland",
         "away": "Algeria",
-        "homeScore": null,
-        "awayScore": null,
+        "homeScore": 2,
+        "awayScore": 0,
         "timeBST": "04:00",
         "venue": "Vancouver (BC Place)",
         "afterMidnight": true,
-        "winner": ""
+        "winner": "Switzerland"
       },
       {
         "date": "2026-07-03",
