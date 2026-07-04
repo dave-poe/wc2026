@@ -1212,12 +1212,14 @@
         "date": "2026-07-03",
         "home": "Australia",
         "away": "Egypt",
-        "homeScore": null,
-        "awayScore": null,
+        "homeScore": 3,
+        "awayScore": 5,
         "timeBST": "19:00",
         "venue": "Dallas",
         "afterMidnight": false,
-        "winner": ""
+        "winner": "Egypt",
+        "penaltiesHome": 4,
+        "penaltiesAway": 4
       },
       {
         "date": "2026-07-03",
