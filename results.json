@@ -1225,23 +1225,23 @@
         "date": "2026-07-03",
         "home": "Argentina",
         "away": "Cape Verde Islands",
-        "homeScore": null,
-        "awayScore": null,
+        "homeScore": 3,
+        "awayScore": 2,
         "timeBST": "23:00",
         "venue": "Miami",
         "afterMidnight": false,
-        "winner": ""
+        "winner": "Argentina"
       },
       {
         "date": "2026-07-04",
         "home": "Colombia",
         "away": "Ghana",
-        "homeScore": null,
-        "awayScore": null,
+        "homeScore": 1,
+        "awayScore": 0,
         "timeBST": "02:30",
         "venue": "Kansas City",
         "afterMidnight": true,
-        "winner": ""
+        "winner": "Colombia"
       }
     ],
     "roundOf16": [],
