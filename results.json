@@ -1087,8 +1087,8 @@
         "date": "2026-06-29",
         "home": "Germany",
         "away": "Paraguay",
-        "homeScore": 4,
-        "awayScore": 5,
+        "homeScore": 1,
+        "awayScore": 1,
         "timeBST": "21:30",
         "venue": "Boston",
         "afterMidnight": false,
@@ -1100,8 +1100,8 @@
         "date": "2026-06-30",
         "home": "Netherlands",
         "away": "Morocco",
-        "homeScore": 3,
-        "awayScore": 4,
+        "homeScore": 1,
+        "awayScore": 1,
         "timeBST": "02:00",
         "venue": "Monterrey",
         "afterMidnight": true,
@@ -1212,13 +1212,13 @@
         "date": "2026-07-03",
         "home": "Australia",
         "away": "Egypt",
-        "homeScore": 3,
-        "awayScore": 5,
+        "homeScore": 1,
+        "awayScore": 1,
         "timeBST": "19:00",
         "venue": "Dallas",
         "afterMidnight": false,
         "winner": "Egypt",
-        "penaltiesHome": 4,
+        "penaltiesHome": 2,
         "penaltiesAway": 4
       },
       {
@@ -1244,7 +1244,96 @@
         "winner": "Colombia"
       }
     ],
-    "roundOf16": [],
+    "roundOf16": [
+      {
+        "date": "2026-07-04",
+        "home": "Canada",
+        "away": "Morocco",
+        "homeScore": null,
+        "awayScore": null,
+        "timeBST": "18:00",
+        "venue": "",
+        "afterMidnight": false,
+        "winner": ""
+      },
+      {
+        "date": "2026-07-04",
+        "home": "Paraguay",
+        "away": "France",
+        "homeScore": null,
+        "awayScore": null,
+        "timeBST": "22:00",
+        "venue": "",
+        "afterMidnight": false,
+        "winner": ""
+      },
+      {
+        "date": "2026-07-05",
+        "home": "Brazil",
+        "away": "Norway",
+        "homeScore": null,
+        "awayScore": null,
+        "timeBST": "21:00",
+        "venue": "",
+        "afterMidnight": false,
+        "winner": ""
+      },
+      {
+        "date": "2026-07-06",
+        "home": "Mexico",
+        "away": "England",
+        "homeScore": null,
+        "awayScore": null,
+        "timeBST": "01:00",
+        "venue": "",
+        "afterMidnight": true,
+        "winner": ""
+      },
+      {
+        "date": "2026-07-06",
+        "home": "Portugal",
+        "away": "Spain",
+        "homeScore": null,
+        "awayScore": null,
+        "timeBST": "20:00",
+        "venue": "",
+        "afterMidnight": false,
+        "winner": ""
+      },
+      {
+        "date": "2026-07-07",
+        "home": "United States",
+        "away": "Belgium",
+        "homeScore": null,
+        "awayScore": null,
+        "timeBST": "01:00",
+        "venue": "",
+        "afterMidnight": true,
+        "winner": ""
+      },
+      {
+        "date": "2026-07-07",
+        "home": "Argentina",
+        "away": "Egypt",
+        "homeScore": null,
+        "awayScore": null,
+        "timeBST": "17:00",
+        "venue": "",
+        "afterMidnight": false,
+        "winner": ""
+      },
+      {
+        "date": "2026-07-07",
+        "home": "Switzerland",
+        "away": "Colombia",
+        "homeScore": null,
+        "awayScore": null,
+        "timeBST": "21:00",
+        "venue": "",
+        "afterMidnight": false,
+        "winner": ""
+      }
+    ],
     "quarterFinals": [],
     "semiFinals": [],
     "final": {

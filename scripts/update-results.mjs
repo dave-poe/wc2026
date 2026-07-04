@@ -78,34 +78,35 @@ for (const m of matches) {
     unmatched.push(`${m.stage}: ${home} vs ${away}`);
     continue;
   }
-  // winner: prefer API's score.winner (covers ET/penalties); fall back to fullTime score if decisive.
-  let winner = "";
-  if (m.score?.winner === "HOME_WIN") winner = fixture.home;
-  else if (m.score?.winner === "AWAY_WIN") winner = fixture.away;
-  else if (hs > as) winner = fixture.home;
-  else if (as > hs) winner = fixture.away;
 
   const ph = m.score?.penalties?.home ?? null;
   const pa = m.score?.penalties?.away ?? null;
   const hasPens = ph != null && pa != null;
-  if (!winner && hasPens) {
-    if (ph > pa) winner = fixture.home;
-    else if (pa > ph) winner = fixture.away;
-  }
+  // football-data.org bakes penalty totals into fullTime — strip them so we store the 90+ET score.
+  const displayHome = hasPens ? hs - ph : hs;
+  const displayAway = hasPens ? as - pa : as;
+
+  let winner = "";
+  if (m.score?.winner === "HOME_WIN") winner = fixture.home;
+  else if (m.score?.winner === "AWAY_WIN") winner = fixture.away;
+  else if (hasPens && ph > pa) winner = fixture.home;
+  else if (hasPens && pa > ph) winner = fixture.away;
+  else if (displayHome > displayAway) winner = fixture.home;
+  else if (displayAway > displayHome) winner = fixture.away;
 
   const changed =
-    fixture.homeScore !== hs ||
-    fixture.awayScore !== as ||
+    fixture.homeScore !== displayHome ||
+    fixture.awayScore !== displayAway ||
     (winner && fixture.winner !== winner) ||
     (hasPens && (fixture.penaltiesHome !== ph || fixture.penaltiesAway !== pa));
   if (changed) {
     const pensSuffix = hasPens ? ` (pens ${ph}-${pa})` : "";
     updates.push({
-      match: `[${m.stage}] ${home} ${hs}-${as} ${away}${pensSuffix}${winner ? ` (winner: ${winner})` : ""}`,
+      match: `[${m.stage}] ${home} ${displayHome}-${displayAway} ${away}${pensSuffix}${winner ? ` (winner: ${winner})` : ""}`,
       from: `${fixture.homeScore ?? "null"}-${fixture.awayScore ?? "null"}`,
     });
-    fixture.homeScore = hs;
-    fixture.awayScore = as;
+    fixture.homeScore = displayHome;
+    fixture.awayScore = displayAway;
     if (winner) fixture.winner = winner;
     if (hasPens) {
       fixture.penaltiesHome = ph;
