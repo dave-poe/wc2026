@@ -1249,23 +1249,23 @@
         "date": "2026-07-04",
         "home": "Canada",
         "away": "Morocco",
-        "homeScore": null,
-        "awayScore": null,
+        "homeScore": 0,
+        "awayScore": 3,
         "timeBST": "18:00",
         "venue": "",
         "afterMidnight": false,
-        "winner": ""
+        "winner": "Morocco"
       },
       {
         "date": "2026-07-04",
         "home": "Paraguay",
         "away": "France",
-        "homeScore": null,
-        "awayScore": null,
+        "homeScore": 0,
+        "awayScore": 1,
         "timeBST": "22:00",
         "venue": "",
         "afterMidnight": false,
-        "winner": ""
+        "winner": "France"
       },
       {
         "date": "2026-07-05",
