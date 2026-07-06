@@ -1282,12 +1282,12 @@
         "date": "2026-07-06",
         "home": "Mexico",
         "away": "England",
-        "homeScore": null,
-        "awayScore": null,
+        "homeScore": 2,
+        "awayScore": 3,
         "timeBST": "01:00",
         "venue": "",
         "afterMidnight": true,
-        "winner": ""
+        "winner": "England"
       },
       {
         "date": "2026-07-06",
