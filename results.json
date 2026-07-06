@@ -1271,12 +1271,12 @@
         "date": "2026-07-05",
         "home": "Brazil",
         "away": "Norway",
-        "homeScore": null,
-        "awayScore": null,
+        "homeScore": 1,
+        "awayScore": 2,
         "timeBST": "21:00",
         "venue": "",
         "afterMidnight": false,
-        "winner": ""
+        "winner": "Norway"
       },
       {
         "date": "2026-07-06",
