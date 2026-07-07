@@ -1304,12 +1304,12 @@
         "date": "2026-07-07",
         "home": "United States",
         "away": "Belgium",
-        "homeScore": null,
-        "awayScore": null,
+        "homeScore": 1,
+        "awayScore": 4,
         "timeBST": "01:00",
         "venue": "",
         "afterMidnight": true,
-        "winner": ""
+        "winner": "Belgium"
       },
       {
         "date": "2026-07-07",
