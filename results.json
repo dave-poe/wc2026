@@ -1293,12 +1293,12 @@
         "date": "2026-07-06",
         "home": "Portugal",
         "away": "Spain",
-        "homeScore": null,
-        "awayScore": null,
+        "homeScore": 0,
+        "awayScore": 1,
         "timeBST": "20:00",
         "venue": "",
         "afterMidnight": false,
-        "winner": ""
+        "winner": "Spain"
       },
       {
         "date": "2026-07-07",
