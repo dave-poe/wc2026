@@ -1315,23 +1315,25 @@
         "date": "2026-07-07",
         "home": "Argentina",
         "away": "Egypt",
-        "homeScore": null,
-        "awayScore": null,
+        "homeScore": 3,
+        "awayScore": 2,
         "timeBST": "17:00",
         "venue": "",
         "afterMidnight": false,
-        "winner": ""
+        "winner": "Argentina"
       },
       {
         "date": "2026-07-07",
         "home": "Switzerland",
         "away": "Colombia",
-        "homeScore": null,
-        "awayScore": null,
+        "homeScore": 1,
+        "awayScore": 0,
         "timeBST": "21:00",
         "venue": "",
         "afterMidnight": false,
-        "winner": ""
+        "winner": "Switzerland",
+        "penaltiesHome": 3,
+        "penaltiesAway": 3
       }
     ],
     "quarterFinals": [],
