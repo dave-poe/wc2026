@@ -1326,13 +1326,13 @@
         "date": "2026-07-07",
         "home": "Switzerland",
         "away": "Colombia",
-        "homeScore": 1,
+        "homeScore": 0,
         "awayScore": 0,
         "timeBST": "21:00",
         "venue": "",
         "afterMidnight": false,
         "winner": "Switzerland",
-        "penaltiesHome": 3,
+        "penaltiesHome": 4,
         "penaltiesAway": 3
       }
     ],
