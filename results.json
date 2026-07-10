@@ -1341,12 +1341,12 @@
         "date": "2026-07-09",
         "home": "France",
         "away": "Morocco",
-        "homeScore": null,
-        "awayScore": null,
+        "homeScore": 2,
+        "awayScore": 0,
         "timeBST": "21:00",
         "venue": "",
         "afterMidnight": false,
-        "winner": ""
+        "winner": "France"
       },
       {
         "date": "2026-07-10",
