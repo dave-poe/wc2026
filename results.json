@@ -1374,12 +1374,12 @@
         "date": "2026-07-12",
         "home": "Argentina",
         "away": "Switzerland",
-        "homeScore": null,
-        "awayScore": null,
+        "homeScore": 3,
+        "awayScore": 1,
         "timeBST": "02:00",
         "venue": "",
         "afterMidnight": true,
-        "winner": ""
+        "winner": "Argentina"
       }
     ],
     "semiFinals": [],
