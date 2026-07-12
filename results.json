@@ -1363,12 +1363,12 @@
         "date": "2026-07-11",
         "home": "Norway",
         "away": "England",
-        "homeScore": null,
-        "awayScore": null,
+        "homeScore": 1,
+        "awayScore": 2,
         "timeBST": "22:00",
         "venue": "",
         "afterMidnight": false,
-        "winner": ""
+        "winner": "England"
       },
       {
         "date": "2026-07-12",
