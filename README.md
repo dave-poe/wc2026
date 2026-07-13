@@ -110,7 +110,7 @@ node build.mjs && open index.html
 A scheduled GitHub Action also pulls finished scores from football-data.org and updates `results.json` automatically.
 - It only creates a PR when `results.json` actually changes.
 - It validates `results.json` as JSON before the PR is opened.
-- It runs on the hours after most games finish: `22:00`, `00:00`, `02:00`, and `05:00` UTC.
+- It runs at `23:00` UTC on Tuesday and Wednesday, after the semi-finals kick off.
 
 ## Notes / limitations
 
