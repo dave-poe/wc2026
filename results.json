@@ -1382,7 +1382,30 @@
         "winner": "Argentina"
       }
     ],
-    "semiFinals": [],
+    "semiFinals": [
+      {
+        "date": "2026-07-14",
+        "home": "France",
+        "away": "Spain",
+        "homeScore": null,
+        "awayScore": null,
+        "timeBST": "20:00",
+        "venue": "Dallas",
+        "afterMidnight": false,
+        "winner": ""
+      },
+      {
+        "date": "2026-07-15",
+        "home": "England",
+        "away": "Argentina",
+        "homeScore": null,
+        "awayScore": null,
+        "timeBST": "20:00",
+        "venue": "Atlanta",
+        "afterMidnight": false,
+        "winner": ""
+      }
+    ],
     "final": {
       "home": "",
       "away": "",
