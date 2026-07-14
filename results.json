@@ -1387,12 +1387,12 @@
         "date": "2026-07-14",
         "home": "France",
         "away": "Spain",
-        "homeScore": null,
-        "awayScore": null,
+        "homeScore": 0,
+        "awayScore": 2,
         "timeBST": "20:00",
         "venue": "Dallas",
         "afterMidnight": false,
-        "winner": ""
+        "winner": "Spain"
       },
       {
         "date": "2026-07-15",
