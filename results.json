@@ -1398,12 +1398,12 @@
         "date": "2026-07-15",
         "home": "England",
         "away": "Argentina",
-        "homeScore": null,
-        "awayScore": null,
+        "homeScore": 1,
+        "awayScore": 2,
         "timeBST": "20:00",
         "venue": "Atlanta",
         "afterMidnight": false,
-        "winner": ""
+        "winner": "Argentina"
       }
     ],
     "final": {
