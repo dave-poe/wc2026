@@ -151,15 +151,15 @@
   "prizes": {
     "winner": {
       "label": "1st Place (Champion)",
-      "team": ""
+      "team": "Spain"
     },
     "runnerUp": {
       "label": "2nd Place (Runner-up)",
-      "team": ""
+      "team": "Argentina"
     },
     "third": {
       "label": "3rd Place (3rd-place playoff)",
-      "team": ""
+      "team": "England"
     },
     "firstRedCard": {
       "label": "First Red Card of Tournament",
@@ -173,12 +173,12 @@
     },
     "biggestFlop": {
       "label": "Biggest Flop",
-      "team": "",
+      "team": "England",
       "note": ""
     },
     "biggestSurprise": {
       "label": "Biggest Surprise",
-      "team": "",
+      "team": "Cape Verde Islands",
       "note": ""
     },
     "bestGoal": {
@@ -1407,9 +1407,14 @@
       }
     ],
     "final": {
-      "home": "",
-      "away": "",
-      "winner": ""
+      "home": "Spain",
+      "away": "Argentina",
+        "homeScore": 1,
+        "awayScore": 0,
+        "timeBST": "20:00",
+        "venue": "New Jersey",
+        "afterMidnight": false,
+        "winner": "Spain"
     }
   }
 }
